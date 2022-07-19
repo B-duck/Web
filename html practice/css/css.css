@@ -1,0 +1,357 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 取掉所有小圆点 */
+ul,ol{
+    list-style: none;
+}
+/* 去掉所有下划线 */
+a{
+    text-decoration: none;
+}
+/* 使用继承性，给body标签设置字体 */
+body{
+    font:normal 14px/25px '微软雅黑';
+    min-width: 1201px;
+}
+/* 页面头部 */
+header{
+    width: 100%;
+    height: 100%;
+    background-color: #07cbc9;
+}
+header .header-top{
+    width: 1201px;
+    height: 80px;
+    margin: 0 auto;
+    /* 浮动要封闭在一个盒子中，否则就会对页面后续元素产生影响 */
+    /* 清除浮动，形成BFC */
+    overflow:hidden;
+}
+header .header-top .logo{
+    float: left;
+    height: 48px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+header .header-top nav{
+    float: right;
+}
+header .header-top nav ul li{
+    float: left;
+    text-align: center;
+    line-height: 80px;
+    margin-right: 20px;
+}
+header .header-top nav ul li a{
+    display: block;
+    height: 80px;
+    color: white;
+    font-size: 20px;
+}
+/* banner区域 */
+.banner{
+    position: relative;
+    height: 600px;
+}
+.banner .banner-img{
+    width: 100%;
+    height: 600px;
+}
+.banner .banner-cover{
+    position: absolute;
+    width: 100%;
+    height: 600px;
+    background-color: rgba(0,0,0,.5);
+    top: 50%;
+    margin-top: -300px;
+}
+/* 表单 */
+.banner .banner-cover .banner-table{
+    position: absolute;
+    width: 504px;
+    height: 366px;
+    left: 50%;
+    top: 100px;
+    margin-left: -260px;
+    text-align: center;
+}
+.banner .banner-cover .banner-table .box{
+    width: 500px;
+    height: 40px;
+    background: none;
+    color: #808080;
+    border: 2px solid #808080;
+    margin-bottom: 20px;
+   
+}
+.banner .banner-cover .banner-table #comment{
+    width: 500px;
+    height: 110px;
+    background: none;
+    color: #808080;
+    margin-bottom: 20px;
+    border: 2px solid #808080;
+    /* vertical-align: bottom; */
+    display: block;
+}
+.banner .banner-cover .banner-table .bt{
+    width: 200px;
+    height: 40px;
+    background: none;
+    color: #808080;
+    border: 2px solid #808080;
+}
+/* about区域 */
+.about{
+    width: 1201px;
+    margin: 0 auto;
+}
+.about .about-on{
+    margin-top: 30px;
+    text-align: center;
+}
+.about .about-on h3{
+    font-size: 32px;
+}
+.about .about-on .line{
+    width: 60px;
+    height: 3px;
+    background-color: #07cbc9;
+    margin: 10px auto;
+}
+.about .about-on .p{
+    width: 450px;
+    font-size: 14px;
+    color: gray;
+    margin: 0 auto;
+}
+.about .about-under{
+    position: relative;
+    overflow: hidden;
+    width: 1201px;
+    height: 464px;
+}
+/* 左侧内容和图片都左浮动，内容和图片不放在一个盒子里*/
+.about .about-under .left{
+    float: left;
+}
+.about .about-under .about-img{
+    width: 650px;
+    height: 435px;
+    float: left;
+    margin-top: 30px;
+}
+/* 标题设置上下边距，行间距 */
+.about .about-under .left h3{
+    width: 250px;
+    font-size: 32px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+.about .about-under .left .touming{
+    position: absolute;
+    width: 300px;
+    padding: 20px;
+    font-size: 18px;
+    border: 1px solid gray;
+    background-color: rgba(255,255,255,.5);
+}
+.about .about-under .left .touming a{
+    display: block;
+    width: 140px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    margin-top: 40px;
+    background-color: black;
+    color: white;
+}
+.about .about-under .right{
+    float: right;
+}
+.about .about-under .right .c1{
+    width: 200px;
+    padding: 40px;
+    border: 3px solid #07cbc9;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.about .about-under .right .c2{
+    width: 200px;
+    padding: 40px;
+    border: 3px solid #07cbc9;
+}
+.about .about-under .right .c1 h3{
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+.about .about-under .right .c2 h3{
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+.about .about-under .right .c1 .line{
+    width: 60px;
+    height: 3px;
+    background-color: #07cbc9;
+    margin: 10px auto;
+}
+.about .about-under .right .c2 .line{
+    width: 60px;
+    height: 3px;
+    background-color: #07cbc9;
+    margin: 10px auto;
+}
+.about .about-under .right .c1 span{
+    display: block;
+    text-align: center;
+    color: #333;
+    font-size: 20px;
+}
+.about .about-under .right .c2 span{
+    display: block;
+    text-align: center;
+    color: #333;
+    font-size: 20px;
+}
+/* 图文混排 */
+.section{
+    width: 100%;
+    overflow: hidden;
+}
+.section .b{
+    width: 25%;
+    height: 380px;
+    float: left;
+    overflow: hidden;
+}
+.section .img{
+    position: absolute;
+    display: block;
+}
+.section .word{
+    font-size: 24px;
+    line-height: 1.5;
+    color: #fff;
+    background-color: #02cbc9;
+    position: relative;
+}
+
+.section .arrow-left {
+    width: 0px;
+    height: 0px;
+    border: 20px solid orange;
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    margin-top: -20px;
+    border-right-color: #07cbc9;
+}
+.section .arrow-right::before {
+    border-left-color: #07cbc9;
+    right: -40px;
+}
+.section .word h4{
+    margin-top: 20px;
+    margin-left: 20px;
+    padding-bottom: 30px;
+    font-size: 24px;
+}
+.section .word p{
+    margin-left: 20px;
+}
+.section .word .p1{
+    padding-bottom: 20px;
+    font-size: 16px;
+}
+.section .word .p2{
+    font-size: 14px;
+    color: gray;
+    padding-bottom: 30px;
+}
+.section .word a{
+    display: block;
+    width: 138px;
+    height: 40px;
+    background-color: #333;
+    color: white;
+    font-size: 20px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 40px;
+}
+/* Gallery区域 */
+.gallery{
+    width: 1201px;
+    margin: 0 auto;
+}
+.gallery .gallery-on{
+    margin-top: 30px;
+    text-align: center;
+}
+.gallery .gallery-on h3{
+    font-size: 32px;
+}
+.gallery .gallery-on .line{
+    width: 60px;
+    height: 3px;
+    background-color: #07cbc9;
+    margin: 10px auto;
+}
+.gallery .gallery-on .p{
+    width: 450px;
+    font-size: 14px;
+    color: gray;
+    margin: 0 auto;
+}
+.gallery .gallery-under{
+    width: 1200px;
+    height: 653px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+}
+.gallery .gallery-under dl{
+    float: left;
+    margin-right: 40px;
+}
+.gallery .gallery-under dl:nth-child(1){
+    margin-bottom: 30px;
+}
+.gallery .gallery-under dl:nth-child(2){
+    margin-bottom: 30px;
+}
+.gallery .gallery-under dl:nth-child(3){
+    margin-bottom: 30px;
+    margin-right: 0;
+}
+.gallery .gallery-under dl:nth-child(6){
+    margin-right: 0;
+}
+.gallery .gallery-under dl dt{
+    width: 360px;
+    height: 240px;
+}
+.gallery .gallery-under dl dt img{
+    display: block;
+}
+.gallery .gallery-under dl dd{
+    height: 50px;
+    background-color: #333;
+    color: white;
+    line-height: 50px;
+    padding-left: 20px;
+}
+/* 页脚 */
+footer{
+    height: 80px;
+    background-color: #07cbc9;
+}
+footer .p{
+    text-align: center;
+    line-height: 80px;
+}

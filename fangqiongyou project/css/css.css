@@ -1,0 +1,737 @@
+/* 头部 */
+/* 第一段 */
+.head{
+    min-width: 1152px;
+    height: 150px;
+}
+.head .topbar{
+    min-width: 1152px;
+    height: 32px;
+    background-color: #383D42;
+    line-height: 32px;
+    color: white;
+}
+.head .topbar a{
+    color: white;
+}
+.head .topbar .shortcut-links{
+    float: left;
+}
+/* 在后续还需要添加列表项，而后代选择器中li的指示范围太广 */
+.head .topbar .shortcut-links>ul>li{
+    float: left;
+    margin-right: 18px;
+    font-size: 12px;
+}
+/* 绝对定位的元素可以漂浮在padding中 */
+.head .topbar .shortcut-links>ul>li.menu{
+    padding-right: 12px;
+    position: relative;
+}
+/* 箭头 */
+.head .topbar .shortcut-links>ul>li.menu .arrow{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -6px;
+    width: 12px;
+    height: 12px;
+    transition: transform .2s ease 0s;
+}
+.head .topbar .shortcut-links>ul>li.menu:hover .arrow{
+    transform: rotate(180deg);
+}
+.head .topbar .shortcut-links>ul>li.menu .arrow b{
+    position: absolute;
+    left: 4px;
+    top: 2px;
+    width: 6px;
+    height: 6px;
+    background-color: #fff;
+    transform: rotate(45deg);
+}
+.head .topbar .shortcut-links>ul>li.menu .arrow i{
+    position: absolute;
+    left: 4px;
+    top: 0.5px;
+    width: 6px;
+    height: 6px;
+    background-color: #2A2A2A;
+    transform: rotate(45deg);
+}
+/* 箭头菜单 */
+.head .topbar .shortcut-links>ul>li.menu .menu{
+    position: absolute;
+    /* 菜单不能与导航栏有空隙，不然鼠标上不了菜单中 */
+    top: 30px;
+    left: 0;
+    background-color: white;
+    /* 盖住底下文字 */
+    z-index: 9999;
+    /* 隐藏 */
+    display: none;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.20);
+    padding: 10px;
+}
+.head .topbar .shortcut-links>ul>li.menu:hover .menu{
+    /* 显示 */
+    display: block;
+}
+.head .topbar .shortcut-links>ul>li.menu:hover>a{
+    color:#20BD9A;
+}
+.head .topbar .shortcut-links>ul>li.menu .sq{
+    width: 111px;
+    /* 内容撑出高 */
+}
+.head .topbar .shortcut-links>ul>li.menu .sc{
+    width: 76px;
+    /* 内容撑出高 */
+}
+.head .topbar .shortcut-links>ul>li.menu .jd{
+    width: 80px;
+    /* 内容撑出高 */
+}
+
+.head .topbar .shortcut-links>ul>li.menu:hover .menu .menu-list a{
+    font-size: 12px;
+    color: #1C1F21;
+    line-height: 18px;
+}
+.head .topbar .shortcut-links>ul>li.menu:hover .menu .menu-list a:hover{
+    color: orange;
+}
+.head .topbar .shortcut-links>ul>li.menu:hover .menu .menu-list li{
+    height: 20px;
+    line-height: 20px;
+}
+.head .topbar .navr{
+    float: right;
+    width: 225px;
+}
+.head .topbar .navr a,.head .topbar .navr span{
+    margin-right: 10px;
+    font-size: 15px;
+}
+.head .topbar .navr a:last-child{
+    margin-right: 0;
+}
+/* 第二段 */
+.head .main-nav{
+    min-width: 1152px;
+    height: 40px;
+    background-color: #20BD9A;
+}
+.head .main-nav .center ul li.menu .menu{
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.20);
+    padding: 10px;
+    display: none;
+}
+.head .main-nav .center ul li.menu:hover .menu{
+    display: block;
+}
+.head .main-nav .center ul li.menu:hover>a{
+    font-weight: 1000;
+}
+.head .main-nav .center ul li .menu dl dd a{
+    color: #1C1F21;
+}
+.head .main-nav .center ul li .menu dl dd a:hover{
+    color: orange;
+}
+.head .main-nav .center ul li .menu dl dt{
+    font-weight: bold;
+}
+.head .main-nav .center ul li .jj{
+    width: 150px;
+}
+.head .main-nav .center ul li .gt{
+    width: 90px;
+}
+.head .main-nav .center ul li .wl{
+    width: 190px;
+}
+.head .main-nav .center ul li .ll{
+    width: 160px;
+}
+.head .main-nav ul li{
+    float: left;
+    margin-right: 30px;
+}
+.head .main-nav ul li.menu{
+    padding-right: 16px;
+    position: relative;
+}
+.head .main-nav ul li a{
+    line-height: 40px;
+    font-size: 16px;
+    color: white;
+}
+.head .main-nav ul li.menu::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 18px;
+    width: 0px;
+    height: 0px;
+    border: 5px solid transparent;
+    border-bottom: none;
+    border-top-color: white;
+}
+.head .main-nav ul li.menu:hover::before{
+    transform: rotate(180deg);
+}
+/* 第三段 */
+.head .header-con{
+    min-width: 1152px;
+    height: 36px;
+    padding: 21px 0;
+}
+.head .header-con .center h1{
+    float: left;
+    font-size: 24px;
+    color: #20BD9A;
+    font-weight: bold;
+    line-height: 36px;
+}
+.head .header-con .center .sousu{
+    float: left;
+    margin-left: 20px;
+    width: 405px;
+    padding-top: 2px;
+}
+.head .header-con .center input{
+    width: 371px;
+    height: 28px;
+    border: 1px solid #20BD9A;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    float: left;
+}
+.head .header-con .center .btn{
+    float: left;
+    width: 32px;
+    height: 30px;
+    background-color: #20BD9A;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    font-size: 22px;
+    border-radius: 0 4px 4px 0;
+}
+/* Banner布局 */
+.banner{
+    position: relative;
+}
+.banner img{
+    width: 100%;
+    /* 使用min-width属性，表示限制网页的最小的宽度，这样图片不会因为要撑满网页，而变的越来越小 */
+    min-width: 1152px;
+}
+.banner .center{
+    position: absolute;
+    top: 0;
+    left: 0;
+    left: 50%;
+    margin-left: -576px;
+    /* 盒子高必须为100%，因为子盒子要用百分数来瓜分高度 */
+    height: 100%;
+}
+.banner .center .banner-nav{
+    height: 100%;
+}
+.banner .center .banner-nav ul{
+    height: 100%;
+}
+.banner .center .banner-nav>ul>li{
+    height: 16.66%;
+    width: 296px;
+    background-color: rgba(0,0,0,.5);
+    /* 子盒子需要有一节白色的边框 */
+    border-bottom: 1px solid white;
+    /* 子盒子高度会超出背景图片 */
+    /* box-sizing: border-box;作用就是让height属性是盒子的高度，只有在盒子高度是百分比的情况下*/
+    /* 让盒子的边框涵盖在height中 */
+    box-sizing: border-box;
+    position: relative;
+}
+.banner .center .banner-nav>ul>li:last-child{
+    border-bottom: none;
+}
+.banner .center .leftbtn{
+    position: absolute;
+    width: 28px;
+    height: 44px;
+    left: -38px;
+    top: 50%;
+    margin-top: -22px;
+    background: url(../images/icons.png) no-repeat -21px -94px;
+}
+.banner .center .rightbtn{
+    position: absolute;
+    width: 28px;
+    height: 44px;
+    right: -38px;
+    top: 50%;
+    margin-top: -22px;
+    background: url(../images/icons.png) no-repeat -21px -29px;
+}
+.banner .center .leftbtn:hover,.banner .center .rightbtn:hover{
+    opacity: 0.6;
+}
+/* 垂直菜单1 */
+.banner .center .banner-nav>ul>li dl{
+    position: absolute;
+    /* 高是文字的高 */
+    height: 48px;
+    top: 50%;
+    margin-top: -24px;
+    left: 40px;
+    color: #fff;
+}
+.banner .center .banner-nav>ul>li dl dt{
+    font-size: 18px;
+    line-height: 26px;
+    height: 26px;
+}
+.banner .center .banner-nav>ul>li dl dd{
+    font-size: 16px;
+    line-height: 22px;
+    height: 26px;
+}
+.banner .center .banner-nav>ul>li::before{
+    content: '';
+    position: absolute;
+    background: url(../images/icons.png);
+    top: 50%;
+    left: 10px;
+}
+.banner .center .banner-nav>ul>li.rm::before{
+    width: 24px;
+    height: 24px;
+    background-position: -29px -399px;
+    margin-top: -12px;
+}
+.banner .center .banner-nav>ul>li.gao::before{
+    width: 24px;
+    height: 24px;
+    background-position: -28px -217px;
+    margin-top: -12px;
+}
+.banner .center .banner-nav>ul>li.rb::before{
+    width: 24px;
+    height: 24px;
+    background-position: -25px -171px;
+    margin-top: -12px;
+}
+.banner .center .banner-nav>ul>li.dn::before{
+    width: 24px;
+    height: 24px;
+    background-position: -28px -262px;
+    margin-top: -12px;
+}
+.banner .center .banner-nav>ul>li.oz::before{
+    width: 24px;
+    height: 24px;
+    background-position: -29px -351px;
+    margin-top: -12px;
+}
+.banner .center .banner-nav>ul>li.ax::before{
+    width: 24px;
+    height: 24px;
+    background-position: -28px -305px;
+    margin-top: -12px;
+}
+/* 垂直菜单2 */
+.banner .center .banner-nav .menu-box .menu{
+    display: none;
+    position: absolute;
+    left: 296px;
+    top: 0;
+    width: 334px;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+    color: white;
+    padding: 16px;
+     /* box-sizing: border-box;作用就是让height属性是盒子的高度，只有在盒子高度是百分比的情况下*/
+    box-sizing: border-box;
+}
+.banner .center .banner-nav .menu-box .current{
+    display: block;
+}
+.banner .center .banner-nav .menu-box .menu a{
+    color: #fff;
+}
+.banner .center .banner-nav .menu-box .menu dl{
+    margin-bottom: 12px;
+}
+.banner .center .banner-nav .menu-box .menu dl dt{
+    line-height: 30px;
+    font-size: 16px;
+}
+.banner .center .banner-nav .menu-box .menu dl dd{
+    line-height: 22px;
+    font-size: 14px;
+}
+/* 热门广告 */
+.hot-ad{
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+.hot-ad ul li{
+    float: left;
+    width: 264px;
+    height: 110px;
+    margin-right: 32px;
+}
+.hot-ad ul li:hover{
+    transform: scale(1.2);
+}
+.hot-ad ul li:last-child{
+    margin-right: 0;
+}
+/* 新鲜甩尾 */
+.xxsw{
+    height: 698px;
+    background-color: #F7F7F7;
+    padding-top: 40px;
+}
+.xxsw .center .hd{
+    margin-bottom: 32px;
+}
+.xxsw .center .hd h2{
+    float: left;
+}
+.xxsw .center ul li{
+    float: left;
+    width: 264px;
+    height: 270px;
+    margin-right: 32px;
+    background: white;
+    margin-bottom: 32px;
+}
+.xxsw .center ul li:nth-child(4n){
+    margin-right: 0;
+}
+.xxsw .center ul li .word{
+    padding: 20px;
+    font-size: 14px;
+    color: #1C1F21;
+}
+.xxsw .center ul li:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.20);
+}
+/* 机酒自由行 */
+.jjzy{
+    background: #FFFFFF;
+}
+/* 图片 */
+.jjzy .bd>ul>li.big .info{
+    position: absolute;
+    /* 盒子是沉底的 */
+    bottom: 0;
+    width: 560px;
+    height: 103px;
+    background-color: rgba(0,0,0,.55);
+    color: white;
+    /* 用padding居中 */
+    padding: 20px 26px;
+    box-sizing: border-box;
+    line-height: 27px;
+}
+.jjzy .bd>ul>li .tag{
+    position: absolute;
+    width: 74px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background-color: rgba(0,0,0,.55);
+    color: white;
+    font-size: 14px;
+}
+.jjzy .bd>ul>li.big .tag{
+    bottom: 103px;
+}
+.jjzy .bd>ul>li.pro .tag{
+    bottom: 86px;
+}
+/* 当地玩乐 */
+.ddwl {
+    height: 546px;
+    background-color: #F7F7F7;
+    padding: 40px;
+}
+.ddwl .hd h2{
+    float: left;
+}
+/* 图片 */
+.ddwl .bd{
+    padding-top: 32px;
+}
+.ddwl .bd .col{
+    float: left;
+    width: 364px;
+    height: 480px;
+    margin-right: 30px;
+}
+.ddwl .bd .col:last-child{
+    margin-right: 0;
+}
+/* 大图片 */
+.ddwl .bd .col .big{
+    width: 364px;
+    height: 270px;
+    position: relative;
+    margin-bottom: 30px;
+}
+.ddwl .bd .col .big .info{
+    position: absolute;
+    width: 364px;
+    height: 104px;
+    background-color: rgba(0,0,0,.55);
+    bottom: 0;
+    padding: 21px 17px 0;
+    box-sizing: border-box;
+}
+.ddwl .bd .col .big .info p{
+    color: white;
+    font-size: 14px;
+}
+.ddwl .bd .col .big .info .under{
+    margin-top: 6px;
+}
+.ddwl .bd .col .big .info .under .tag{
+    float: left;
+}
+.ddwl .bd .col .big .info .under .price{
+    float: right;
+}
+.ddwl .bd .col .big .info .under .price i{
+    font-style: normal;
+    color: #20BD9A;
+}
+/* 小图片 */
+.ddwl .small{
+    width: 364px;
+    height: 120px;
+    background-color: white;
+    margin-bottom: 30px;
+}
+.ddwl .small .img{
+    width: 120px;
+    height: 120px;
+    float: left;
+}
+.ddwl .small .word{
+    float: left;
+    width: 244px;
+    height: 120px;
+    padding: 26px 18px 0;
+    /* 设置paading超出宽高之后 */
+    box-sizing: border-box;
+    background: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.08);
+    font-size: 14px;
+    color: #1C1F21;
+}
+.ddwl .bd .col .more{
+    background-image: linear-gradient(180deg, #FF6374 1%, #FF7368 98%);
+    width: 364px;
+    height: 270px;
+}
+.ddwl .bd .col .more ul{
+    padding-left: 21px;
+}
+.ddwl .small:hover,.ddwl .big:hover,.ddwl .bd .col .more:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.20);
+}
+/* 特色当地体验 */
+.ts{
+    height: 456px;
+}
+.ts .center{
+    padding-top: 40px;
+}
+.ts .center h2{
+    text-align: center;
+}
+.ts .center .bd{
+    padding-top: 32px;
+}
+.ts .center .bd>ul>li{
+    float: left;
+    width: 264px;
+    height: 290px;
+    margin-right: 32px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.08);
+}
+.ts .center .bd>ul>li:last-child{
+    margin-right: 0;
+}
+.ts .center .bd>ul>li .word{
+    padding: 15px 9px 0;
+}
+.ts .center .bd>ul>li .word .pro{
+    height: 48px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #1C1F21;
+}
+.ts .center .bd>ul>li .word p{
+    font-size: 12px;
+    padding: 8px 9px 0;
+}
+.ts .center .bd>ul>li .word p .score{
+    color: orange;
+}
+.ts .center .bd>ul>li .word p .comment{
+    color: #1C1F21;
+}
+.ts .center .bd>ul>li:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.20);
+}
+/* 最世界·深度旅行 */
+.zsj{
+    background: #F7F7F7;
+}
+.zsj .center .bd .more{
+    background-image: linear-gradient(180deg, #BD5EE8 0%, #832ABB 98%);
+}
+.zsj .center .bd .big .info{
+    position: absolute;
+    bottom: 0;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+/* 跟团/半自助游 */
+.gt{
+    background: #FFFFFF;
+}
+.gt .center .bd .more{
+    background-image: linear-gradient(180deg, #41D8E9 0%, #3685EA 98%);
+}
+.gt .center .bd .more ul{
+    padding-left: 64px;
+}
+/* 页脚 */
+/* 第一段 */
+footer .part1{
+    height: 220px;
+    background-color: #f7f7f7;
+}
+footer .part1 .center nav>ul{
+    padding-top: 36px;
+}
+footer .part1 .center nav>ul>li{
+    float: left;
+    border-right: 2px solid #1C1F21;
+    padding: 0 22px;
+    font-size: 18px;
+    font-weight: bold;
+}
+footer .part1 .center nav>ul>li:last-child{
+    border-right: none;
+}
+footer .part1 .center nav>ul>li a{
+    color: #1C1F21;
+}
+footer .part1 .center dl{
+    float: left;
+    width: 289px;
+    /* 让图标占据在盒子的padding中 */
+    padding-left: 75px;
+    margin-right: 30px;
+    margin-top: 40px;
+    position: relative;
+}
+footer .part1 .center dl dt{
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+footer .part1 .center dl:last-child{
+    margin-right: 0;
+}
+footer .part1 .center dl::before{
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-image: url(../images/icons.png);
+    left: 0;
+}
+footer .part1 .center dl.txfw::before{
+    background-position: -150px -178px;
+}
+footer .part1 .center dl.ccsx::before{
+    background-position: -150px -104px;
+}
+footer .part1 .center dl.axph::before{
+    background-position: -150px -31px;
+}
+/* 第二段 */
+footer .part2{
+    height: 225px;
+    background: #1C1F21;
+}
+footer .part2 .pro{
+    padding-top: 48px;
+}
+footer .part2 .pro h2{
+    float: left;
+    margin-right: 21px;
+    font-size: 46px;
+    color: white;
+}
+footer .part2 .pro .tag{
+    float: left;
+    width: 532px;
+    color: white;
+    font-size: 14px;
+    margin-top: 8px;
+}
+footer .part2 .connect{
+    padding-top: 31px;
+}
+footer .part2 .connect ul li{
+    float: left;
+    border-right: 2px solid white;
+    padding: 0 10px;
+    font-size: 16px;
+    height: 14px;
+    line-height: 14px;
+}
+footer .part2 .connect ul li a{
+    color: white;
+}
+footer .part2 .connect li:first-child {
+    padding-left: 0;
+}
+footer .part2 .connect li:last-child {
+    border-right: none;
+}
+footer .part2 .copyrights{
+    float: left;
+    color: white;
+    padding-top: 20px;
+    font-size: 16px;
+}
+footer .part2 .copyrights a{
+    color: white;
+}
+.backtotop{
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    bottom: 80px;
+    right: 80px;
+    background-color: #ccc;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 12px;
+    box-sizing: border-box;
+    color: white;
+}

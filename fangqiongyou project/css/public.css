@@ -1,0 +1,159 @@
+/* 公共样式 */
+/* 公共的h2和em样式 */
+.public h2{
+    font-size: 36px;
+    color: #1C1F21;
+    line-height: 54px;
+}
+.public em{
+    float: left;
+    /* 用相对定位调em，不要用行高 */
+    position: relative;
+    top: 23px;
+    left: 13px;
+    font-size: 16px;
+    color: #1C1F21; 
+}
+/* 公共的导航条 */
+.public .hd nav{
+    float: right;
+}
+.public .hd nav ul{
+    padding-top: 14px;
+}
+.public .hd nav ul li.current{
+    border-bottom: 4px solid #20BD9A;
+    padding-bottom: 4px;
+}
+.public .hd nav ul li.current a{
+    color: #20BD9A;
+}
+.public .hd nav ul li{
+    float: left;
+    margin-right: 16px;
+    font-size: 14px;
+}
+.public .hd nav ul li:last-child{
+    margin-right: 0;
+}
+.public .hd nav ul li a{
+    color: rgba(0,0,0,0.85);
+}
+/* 公共的渐变盒子 */
+.public .more{
+    width: 264px;
+    height: 270px;
+    background-image: linear-gradient(180deg, #34E3BC 0%, #15AF7A 98%);
+    padding-top: 46px;
+    box-sizing: border-box;
+    position: relative;
+}
+.public .more p{
+    text-align: center;
+    color: white;
+}
+.public .more .iconfont{
+    position: absolute;
+    font-size: 48px;
+    color: white;
+    width: 48px;
+    height: 48px;
+    left: 50%;
+    top: 118px;
+    margin-left: -24px;
+}
+.public .more ul{
+    margin-top: 103px;
+    padding-left: 47px;
+}
+.public .more ul li{
+    float: left;
+    border-right: 2px solid #fff;
+    color: white;
+    padding: 0 6px;
+    height: 22px;
+    line-height: 22px;
+}
+.public .more ul li:last-child{
+    border-right: none;
+}
+/* 箭头弹跳 */
+.public .more:hover .iconfont{
+    animation: tt 1s linear 0s infinite alternate;
+}
+@keyframes tt{
+    from{
+        transform: translateY(-10px);
+    }
+    to{
+        transform: translateY(10px);
+    }
+}
+/* 机酒自由行属于公共布局样式 */
+.common-style{
+    height: 698px;
+    padding: 40px;
+}
+.common-style .hd h2{
+    float: left;
+}
+/* 图片 */
+.common-style .bd{
+    padding-top: 32px;
+}
+.common-style .bd>ul>li{
+    float: left;
+    margin-right: 32px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.08);
+}
+.common-style .bd>ul>li:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.20);
+}
+.common-style .bd>ul>li:nth-child(3),.common-style .bd ul li:nth-child(7){
+    margin-right: 0;
+}
+.common-style .bd>ul>li.big{
+    width: 560px;
+    height: 270px;
+    position: relative;
+}
+.common-style .bd>ul>li.pro{
+    width: 264px;
+    height: 270px;
+    position: relative;
+}
+.common-style .bd>ul>li.pro .word{
+    padding: 14px;
+    font-size: 14px;
+    color: #1C1F21;
+    line-height: 24px;
+}
+.common-style .bd>ul>li.more{
+    width: 264px;
+    height: 270px;
+}
+.common-style .bd>ul>li.big .circle{
+    position: absolute;
+    top: 63px;
+    left: 50%;
+    margin-left: -53px;
+    width: 106px;
+    height: 106px;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding-top: 29px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+.common-style  .center .bd .big .circle p{
+    text-align: center;
+    color: white;
+}
+.common-style .center .bd .big .info{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    color: white;
+    font-size: 14px;
+}

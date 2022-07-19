@@ -1,0 +1,43 @@
+/* 公共类 */
+/* 文字样式，图标样式 */
+@font-face{
+    font-family: "PingFangSC-Regular";
+    src: url(../fonts/PingFangSCRegular.ttf) format('truetype');
+}
+/* 需要添加上级文件 */
+@font-face {
+    font-family: 'iconfont';
+    src: url('../fonts/iconfont.ttf?t=1648871790013') format('truetype');
+  }
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body{
+    font-family: "PingFangSC-Regular";
+}
+body img{
+    /* 图片与盒子产生一些缝隙,垂直居中*/
+    vertical-align: middle;
+}
+/* 清除浮动 */
+.clearfix{
+    overflow: hidden;
+}
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+    overflow: hidden;
+}
+/* 文字居中常用 */
+.center{
+    width: 1152px;
+    margin: 0 auto;
+}
+.db{
+    display: block;
+}
