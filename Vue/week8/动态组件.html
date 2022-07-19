@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //动态组件:根据数据的变化，结合component这个标签，随时动态切换组件的显示
+    const app = Vue.createApp({
+        data() {
+            return {
+                currentItem: 'input-item',
+                //currentItem: 'common-item'
+            }
+        },
+        methods: {
+            handle() {
+                if (this.currentItem === 'input-item') {
+                    this.currentItem = 'common-item';
+                }
+                else {
+                    this.currentItem = 'input-item'
+                }
+            }
+        },
+        //固定组件名：component，动态组件：之前在框中输入额东西切换后不见了，所以用缓存<keep-alive>
+        template: `
+            <keep-alive>
+                <component :is="currentItem" />
+            </keep-alive>
+            <button @click="handle">切换</button>
+            `
+    });
+    app.component('input-item', {
+        template: `
+        <div>
+            <input />
+        </div>
+        `
+    });
+    app.component('common-item', {
+        template: `
+        <div>
+            hello world
+        </div>
+        `
+    });
+    const vm = app.mount('#root');
+</script>
+
+</html>

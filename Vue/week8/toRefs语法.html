@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        template: `
+                <div >{{name}}</div>
+                `,
+        setup(props, context) {
+            //ref从Vue引用出即可
+            const { reactive, toRefs } = Vue;
+            const nameObj = reactive({ name: 'dell' });
+            setTimeout(() => {
+                nameObj.name = 'lee'
+            }, 2000)
+            //toRefs，将proxy（{name:'dell'}）转换为{name:proxy({value:'dell'})}
+            const { name } = toRefs(nameObj);
+            return {
+                name
+            }
+        }
+    });
+
+    const vm = app.mount('#root');
+</script>
+
+</html>

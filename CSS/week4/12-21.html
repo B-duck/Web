@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'webfont';
+            font-display: swap;
+            src: url('//at.alicdn.com/t/webfont_d09kj1xcxte.eot');
+            /* IE9*/
+            src: url('//at.alicdn.com/t/webfont_d09kj1xcxte.eot?#iefix') format('embedded-opentype'),
+                /* IE6-IE8 */
+                url('//at.alicdn.com/t/webfont_d09kj1xcxte.woff2') format('woff2'),
+                url('//at.alicdn.com/t/webfont_d09kj1xcxte.woff') format('woff'),
+                /* chrome、firefox */
+                url('//at.alicdn.com/t/webfont_d09kj1xcxte.ttf') format('truetype'),
+                /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+                url('//at.alicdn.com/t/webfont_d09kj1xcxte.svg#站酷小薇体') format('svg');
+            /* iOS 4.1- */
+        }
+
+        .box {
+            width: 880px;
+            height: 810px;
+            position: relative;
+            margin: 100px auto;
+
+        }
+
+        .box1 {
+            width: 88px;
+            height: 81px;
+            position: absolute;
+            top: -6px;
+            left: -9px;
+            animation: dx 1s linear 0s infinite;
+        }
+
+        .box img {
+            display: block;
+            width: 200px;
+        }
+        .box p{
+            font-family: 'webfont';
+            font-size: 30px;
+        }
+        @keyframes dx {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="images/xin.png" alt="">
+        <div class="box1">
+            <img src="images/xin.png" alt="">
+        </div>
+        <p>说金钱是罪恶，都在捞;说美女是祸水，都想要;说高处不胜寒，都在爬;说烟酒伤身体，都不戒;说天堂最美好，都不去!</p>
+    </div>
+</body>
+
+</html>

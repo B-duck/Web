@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                show: true,
+                condition1: false,
+                condition2: false
+            }
+        },
+        //v-if后面的条件表达式为false，直接从dom上移除
+        //v-show在dom上一直存在，控制其的display=none或者dispaly不存在，v-show性能更好
+        //condition为true，展示的是if，是false展示的是else
+        template: `
+            <div v-if="show">hello</div>
+
+            <div v-if="condition">if</div>
+            <div v-else-if="condition">elseif/div>
+            <div v-else>else</div>
+
+            <div v-show="show">hello</div>
+            `
+    });
+    const vm = app.mount('#root');
+</script>
+
+</html>

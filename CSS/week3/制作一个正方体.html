@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            perspective: 300px;
+            position: relative;
+        }
+        .box p{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+        .box p:nth-child(1){
+            background-color: rgba(200, 235, 103, 0.6);
+            /* 前面 */
+            transform: translateZ(100px);
+        }
+        .box p:nth-child(2){
+            background-color: rgba(109, 171, 221, 0.6);
+            /* 顶面 */
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .box p:nth-child(3){
+            background-color: rgba(148, 162, 241, 0.6);
+            /* 背面 */
+            transform: rotateX(180deg) translateZ(100px);
+        }
+        .box p:nth-child(4){
+            background-color: rgba(241, 116, 116, 0.6);
+        /* 底面 */
+           transform: rotateX(-90deg) translateZ(100px);
+        }
+        .box p:nth-child(5){
+            background-color: rgba(228, 120, 186, 0.6);
+            /* 侧面 */
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        .box p:nth-child(6){
+            background-color: rgba(158, 231, 236, 0.6);
+             /* 侧面 */
+             transform: rotateY(-90deg) translateZ(100px);
+        }
+    </style>
+<body>
+    <div class="box">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+</body>
+</html>

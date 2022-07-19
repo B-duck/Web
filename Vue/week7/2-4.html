@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                message: 'hello'
+            }
+        },
+        //title和message变量中的内容绑定
+        //v-once，变量在第一次时使用变量中的内容，当变量内容发生变化时，不再更新变量内容
+        template: `
+        <div v-bind:title="message"></div>
+        <div v-once>{{message}}</div>
+        `
+    });
+    const vm = app.mount('#root');
+</script>
+
+</html>

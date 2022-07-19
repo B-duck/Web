@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <p>
+            颜色选择控件：<input type="color">
+        </p>
+        <p>
+            日期选择：<input type="date">
+        </p>
+        <p>
+            时间选择：<input type="time">
+        </p>
+        <p>
+            电子邮件：<input type="email">
+        </p>
+        <p>
+            必填：<input type="text" required>
+        </p>
+        <p>
+            数字：<input type="number" min="1" max="20">
+        </p>
+        <p>
+            数字拖拽条：<input type="range" min="1" max="20">
+            <!-- 结合JS实现拖拽条显示数字 -->
+        </p>
+        <p>
+            搜索框：<input type="search">
+        </p>
+        <p>
+            网址：<input type="url">
+        </p>
+        <p>
+            选择省份：
+            <input type="text" list="province">
+            <datalist id="province">
+                <option value="山西">
+                <option value="北京">
+                <option value="山东">
+                <option value="云南">
+                <option value="广东">
+            </datalist>
+        </p>
+        <p>
+            <input type="submit" value="提交表单">
+        </p>
+        <p>
+            请做自我介绍：
+        </p>
+        <p>
+            <textarea cols="20" rows="3" placeholder="请在此处介绍自己"></textarea>
+        </p>
+    </form>
+</body>
+
+</html>

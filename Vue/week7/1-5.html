@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //创建一个Vue的实例
+    //app是最外层的一个大组件
+    const app = Vue.createApp({
+        data() {
+            return {
+                inputValue: '',
+                list: []
+            }
+        },
+        methods: {
+            handle() {
+                this.list.push(this.inputValue)
+                this.inputValue = ''
+            }
+        },
+        //{{}}差值表达式
+        //v-bind:标签属性和某个变量绑定，v-bind简写为：
+        //todoitem是拆分的小组件
+        template: `
+        <div>
+            <input v-model="inputValue" />
+            <button 
+              v-on:click="handle"
+              v-bind:title="inputValue"
+            >
+            增加
+            </button>
+            <ul>
+                <todoitem 
+                v-for="(item,index) of list" 
+                v-bind:content="item"
+                v-bind:index="index"
+                />
+            </ul>
+        </div>
+        `
+    });
+    //在实例上面注册一些组件
+    //'todoitem'组件名字
+    app.component('todoitem', {
+        props: ['content', 'index'],
+        template: '<li>{{content}} {{index}}</li>'
+    });
+    //先创建实例，再定义组件，再挂载到root节点下
+    app.mount('#root');
+</script>
+
+</html>

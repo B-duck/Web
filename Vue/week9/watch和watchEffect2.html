@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //watch和watchEffect的使用和差异
+    const app = Vue.createApp({
+        setup() {
+            const { reactive, watch, watchEffect } = Vue;
+            const nameObj = reactive({
+                name: 'dell',
+                eName: 'lee'
+            })
+
+            // watch([name, ename], ([currname, cure], [prevname, preve]) => {
+            //     console.log('watch', currname, prevname, '--', cure, preve)
+            // })
+
+            //没有lazy属性，是立即执行，immediate
+            //不需要传递要侦听的内容，自动会感知代码依赖
+            //不需要传递很多参数，只需要传递一个回调函数
+            //watchEffect不能获取数据之前的值     
+            watchEffect(() => {
+                console.log(nameObj.name);
+                console.log(nameObj.eName);
+            })
+            return {
+                name,
+                eName
+            }
+        },
+        template: `
+                <div>
+                    <div>
+                        Name: <input v-model="name">
+                    </div>
+                    <div>
+                        Name is {{name}}
+                    </div>
+                    <div>
+                        EName: <input v-model="eName">
+                    </div>
+                    <div>
+                        EName is {{eName}}
+                    </div>
+                </div>
+                `,
+    });
+
+    const vm = app.mount('#root');
+</script>
+
+</html>

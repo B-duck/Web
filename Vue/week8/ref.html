@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //ref 响应式原理
+    //通过proxy对数据进行封装，当数据变化时，出发模版等更新
+    //ref处理基础类型的数据
+    const app = Vue.createApp({
+        template: `
+            <div >{{name}}</div>
+            `,
+        setup(props, context) {
+            //ref从Vue引用出即可
+            const { ref } = Vue;
+            //'dell'变成proxy（{value:'dell'}）响应式应用
+            let name = ref('dell');
+            setTimeout(() => {
+                name.value = 'lee'
+            }, 2000)
+            return {
+                name
+            }
+        }
+    });
+
+    const vm = app.mount('#root');
+</script>
+
+</html>

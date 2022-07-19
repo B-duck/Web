@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                message: [],
+                option: [{
+                    text: 'A', value: 'A',
+                },
+                {
+                    text: 'B', value: 'B',
+                },
+                {
+                    text: 'C', value: 'C',
+                }
+                ]
+            }
+        },
+        //multiple表示可以多项选择
+        template: `
+        <div>
+            {{message}}
+            <select v-model="message" multiple>
+                <option disabled value="">请选择</option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+        </div>
+        <div>
+            {{message}}
+            <select v-model="message" multiple>
+                <option v-for="item in option" :value="item.value">{{item.text}}</option>
+            </select>
+        </div>
+        `
+    });
+    const vm = app.mount('#root');
+</script>
+
+</html>

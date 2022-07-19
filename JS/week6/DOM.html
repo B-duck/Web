@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>你好</li>
+    </ul>
+    <input type="text">
+    <button onclick="add()">添加li</button>
+    <button onclick="addText()">创建文本节点</button>
+    <button onclick="addComment">创建注释节点</button>
+</body>
+
+<script>
+    function add() {
+        //querySelector寻找元素
+        const input = document.querySelector('input')
+        const ul = document.querySelector('ul')
+        //创建li标签 ,它是游离在DOM之外的，在内存中的标签
+        const li = document.createElement('li')
+        //.innerHTML是给元素标签设置文本内容
+        li.innerHTML = input.value;
+        //给ul添加一个子节点
+        ul.appendChild(li)
+    }
+
+    function addText() {
+        //querySelector寻找元素
+        const input = document.querySelector('input')
+        const ul = document.querySelector('ul')
+        //ul下只能有li标签，但浏览器还是反应了文本标签
+        const text = document.createTextNode('888')
+        ul.appendChild(text)
+    }
+
+    function addComment() {
+        //querySelector寻找元素
+        const input = document.querySelector('input')
+        const ul = document.querySelector('ul')
+        //ul下只能有li标签，但浏览器还是反应了文本标签
+        const comment = document.createComment('这里是注释')
+        ul.appendChild(comment)
+    }
+</script>
+
+</html>

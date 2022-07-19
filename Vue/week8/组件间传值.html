@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return { num: () => { alert(123) } }
+        },
+        //:content="num"动态传参，数字
+        //content="num"静态传参，字符串
+        template: `
+            <div>
+            <test :content="num" />
+            </div>
+            `
+    });
+    app.component('test', {
+        // props:接收外部传过来的属性
+        //可以传String，Boolean，Array，Object，Function
+        props: {
+            content: Function
+        },
+        methods: {
+            handle() {
+                alert(456);
+                this.content();
+            }
+        },
+        template: `<div @click="this.handle">{{typeof content}}</div>`
+    })
+    const vm = app.mount('#root');
+</script>
+
+</html>

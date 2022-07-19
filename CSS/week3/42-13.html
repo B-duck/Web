@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 200px;
+            background-color: red;
+            margin: 50px auto;
+            position: relative;
+        }
+        .x1{
+            margin-top: 40.73px;
+            margin-left: 21.47px;
+            border-top: 20.73px solid yellow;
+            border-left: 28.53px solid transparent;
+            border-right: 28.53px solid transparent;
+            position: absolute;
+        }
+        .x1::before{
+            content: '';
+            display: block;
+            position: absolute;
+            border-top: 20.73px solid yellow;
+            border-left: 28.53px solid transparent;
+            border-right: 28.53px solid transparent;
+            transform: rotate(72deg);
+            top: -20.73px;
+            left: -28.53px;
+            transform-origin: 28.53px 9.27px;
+        }
+        .x1::after{
+            content: '';
+            display: block;
+            position: absolute;
+            border-top: 20.73px solid yellow;
+            border-left: 28.53px solid transparent;
+            border-right: 28.53px solid transparent;
+            transform: rotate(-72deg);
+            top: -20.73px;
+            left: -28.53px;
+            transform-origin: 28.53px 9.27px;
+        }
+        .small{
+            position: absolute;
+            border-top: 6.91px solid yellow;
+            border-left: 9.51px solid transparent;
+            border-right: 9.51px solid transparent;
+            transform-origin: 9.51px 3.09px;
+        }
+        .small::before{
+            position: absolute;
+            content: '';
+            display: block;
+            border-top: 6.91px solid yellow;
+            border-left: 9.51px solid transparent;
+            border-right: 9.51px solid transparent;
+            transform:rotate(72deg) ;
+            top: -6.91px;
+            left: -9.51px;
+            transform-origin: 9.51px 3.09px;
+        }
+        .small::after{
+            position: absolute;
+            content: '';
+            display: block;
+            border-top: 6.91px solid yellow;
+            border-left: 9.51px solid transparent;
+            border-right: 9.51px solid transparent;
+            transform:rotate(-72deg) ;
+            top: -6.91px;
+            left: -9.51px;
+            transform-origin: 9.51px 3.09px;
+        }
+        .x2{
+            top: 16.91px;
+            left: 90.49px;
+            transform: rotate(-48.96deg);
+        }
+        .x3{
+            top:36.91px;
+            left: 110.49px;
+            transform: rotate(-26.13deg);
+        }
+        .x4{
+            top:66.91px;
+            left:110.49px;
+            transform: rotate(-2.06deg);
+        }
+        .x5{
+            top: 86.91px;
+            left: 90.49px;
+            transform: rotate(20.66deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="x1"></div>
+        <div class="x2 small"></div>
+        <div class="x3 small"></div>
+        <div class="x4 small"></div>
+        <div class="x5 small"></div>
+    </div>
+</body>
+</html>

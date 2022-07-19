@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //watch和watchEffect的使用和差异
+    const app = Vue.createApp({
+        setup() {
+            const { ref, watch } = Vue;
+            const name = ref('dell')
+            const ename = ref('lee')
+            //watch具备两个特性：lazy 首次页面执行不会执行，变化后才会执行
+            //参数可以拿到原始和当前值
+            //侦听多个数据的内容，用一个侦听器承载
+            watch([name, ename], ([currname, cure], [prevname, preve]) => {
+                console.log(currname, prevname, '--', cure, preve)
+            })
+            return {
+                name,
+                ename
+            }
+        },
+        template: `
+                <div>
+                    <div>
+                        Name: <input v-model="name">
+                    </div>
+                    <div>
+                        Name is {{name}}
+                    </div>
+                    <div>
+                        eName: <input v-model="ename">
+                    </div>
+                    <div>
+                        eName is {{ename}}
+                    </div>
+                </div>
+                `,
+    });
+
+    const vm = app.mount('#root');
+</script>
+
+</html>

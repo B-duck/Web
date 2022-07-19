@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+
+    const app = Vue.createApp({
+        template: `
+            <div @click="handle">{{name}}</div>
+            `,
+        methods: {
+            test() {
+                console.log(this.$options.setup())
+            }
+        },
+        mounted() {
+            this.test();
+        },
+        //在created实例被完全初始化之前执行的函数
+        //所以在setup函数中，不能使用this关键词，得不到methods方法里数据
+        //但methods方法可以调用setup函数
+        setup(props, context) {
+            return {
+                name: 'dell',
+                handle: () => {
+                    alert(123)
+                }
+            }
+        }
+    });
+
+    const vm = app.mount('#root');
+</script>
+
+</html>

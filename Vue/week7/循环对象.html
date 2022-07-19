@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                list: ["hello", "world"],
+                listObject: {
+                    firstname: 'hello',
+                    lastname: 'world'
+                }
+            }
+        },
+        methods: {
+            handle() {
+                //直接添加对象的内容
+                this.listObject.age = 100;
+            }
+        },
+        //循环
+        //v-for直接循环一个数字
+        template: `
+            <div v-for="(value,key,index) in listObject">
+                <div v-if="key!=='lastname'">
+               {{value}} {{key}} {{index}} 
+               </div>
+            </div>
+            <div v-for="item in 10">{{item}}</div>
+            <button @click="handle">新增</button>
+            `
+    });
+    const vm = app.mount('#root');
+</script>
+
+</html>

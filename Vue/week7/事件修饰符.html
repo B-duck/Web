@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                counter: 0
+            }
+        },
+        methods: {
+            handleDiv() {
+                alert('div')
+            },
+            handle(event) {
+                this.counter += 1;
+            }
+        },
+        //.stop修饰符，停止向外做事件的冒泡
+        //.prevent阻止默认行为
+        //.capture,事件运行模式从冒泡到捕获，及从外到内
+        //.once绑定事件只执行一次
+        template: `
+        <div>
+            {{counter}}
+            <div @click="handleDiv">
+                <button @click.stop="handle">按钮</button>
+            </div>
+        </div>
+            `
+    });
+    const vm = app.mount('#root');
+</script>
+
+</html>

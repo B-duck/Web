@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //父组件里调用的数据属性，使用的都是父模版
+    //子组件里调用的数据属性，使用的都是子模版
+    const app = Vue.createApp({
+        data() {
+            return {
+                text: '提交'
+            }
+        },
+        //  <div>提交</div>叫做插槽，slot
+        template: `
+            <myform>
+                <div>{{text}}</div>
+            </myform>
+            <myform>
+                <button>{{text}}</button> 
+            </myform>
+            `
+    });
+    app.component('myform', {
+        methods: {
+            handle() {
+                alert(123)
+            }
+        },
+        template: `
+        <div>
+            <input />
+            <span @click="handle">
+            <slot></slot>
+            </span>
+        </div>
+        `
+    });
+    const vm = app.mount('#root');
+</script>
+
+</html>

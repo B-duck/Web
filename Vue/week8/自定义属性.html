@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //自定义的属性，组件中优先级高于mixin的优先级
+    const myMixin = {
+        number: 1
+    }
+
+    const app = Vue.createApp({
+        mixins: [myMixin],
+        //自定义的属性
+        number: 22,
+        template: `
+            <div>
+                <div>{{this.$options.number}}</div>
+            </div>
+            `
+    })
+    //对Vue实例作一些配置
+    //mixinValue里面有number值，就先返回mixinValue里的
+    app.config.optionMergeStrategies.number = (mixinValue, appValue) => {
+        return mixinValue || appValue
+    }
+    const vm = app.mount('#root');
+</script>
+
+</html>

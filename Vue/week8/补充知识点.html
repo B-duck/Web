@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //v-once:标签只被渲染一次
+    //ref:获取dom节点的语法、
+    //provide,inject:多级组件传值
+    const app = Vue.createApp({
+        data() {
+            return {
+                count: 1
+            }
+        },
+        //获取dom,挂载ref="count"
+        mounted() {
+            console.log(this.$refs.count);
+        },
+        provide() {
+            return {
+                count: this.count
+            }
+        },
+        template: `
+            <div @click="count+=1" v-once>
+                {{count}}
+            </div>
+            <div>
+                <div ref="count">
+                {{count}}
+                </div>
+            </div>
+            <div>
+                <child :count="count">
+            </div>
+            `
+    });
+    app.component('child', {
+        template: `
+        <child-child />
+        `
+    }
+    );
+    app.component('child-child', {
+        inject: ['count'],
+        template: `
+        <div>
+            {{count}}
+        </div>
+        `
+    }
+    );
+    const vm = app.mount('#root');
+</script>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .v-enter-from,
+        .v-leave-to {
+            opacity: 0;
+        }
+
+        .v-enter-active,
+        .v-leave-active {
+            transition: opacity 3s ease-in;
+        }
+
+        .v-enter-to,
+        .v-leave-from {
+            opacity: 1;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                show: false
+            }
+        },
+        methods: {
+            handle() {
+                this.show = !this.show;
+            },
+        },
+        //mode="out-in":先隐藏再展示
+        //appear初次显示组件的时候也会有动画效果
+        template: `
+            <div>
+                <transition mode="out-in" appear>
+                    <div v-if="show">hello</div>
+                    <div v-else="show">bye</div>
+                </transition>
+            <button @click="handle">切换</button>
+            </div>
+            `
+    })
+    const vm = app.mount('#root');
+</script>
+
+</html>

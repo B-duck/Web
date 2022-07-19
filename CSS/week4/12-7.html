@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 50px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 50px;
+            margin: auto;
+            /* 鼠标变成小手 */
+            cursor: pointer;
+            text-align: center;
+            background: #abcdef;
+            transform: rotateX(0deg);
+            transition: all 2s linear 0s;
+        }
+        div:hover{
+            transform: scale(1);
+            transform: rotateX(360deg);
+        }
+    </style>
+</head>
+<body>
+    <div>www.imooc.com</div>
+</body>
+</html>

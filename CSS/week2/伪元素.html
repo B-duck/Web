@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 给选中标签添加第一个子元素，content是第一个元素的内容，
+        必须设置content属性的内容 */
+        a::before{
+            content: '⭐️';
+        }
+        /* 给选中标签添加最后一个子元素 */
+        a::after{
+            content: '❤️' ;
+        }
+        .box1{
+            width: 400px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+        .box1::selection{
+            /* 对鼠标圈选的部分的设置 */
+            background-color: springgreen;
+            color: blueviolet;
+        }
+        .box1::first-letter{
+            /* 选中某元素中（块级元素）第一行的第一个字母 */
+            font-size: 30px;
+        }
+        .box1::first-line{
+            /* 选中某元素中（块级元素）第一行的全部文字  */
+            /* 添加下划线 */
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <a href="">我是超级链接</a>
+    </p>
+    <p>
+        <a href="">我是超级链接</a>
+    </p>
+    <div class="box1">
+        文字文字文字文字文字文字文字文字文字文字文
+    </div>
+</body>
+</html>

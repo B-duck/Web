@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Object.keys()
+        //返回以对象key为元素的数组,name,age
+        console.log(Object.keys({ name: "Tom", age: 11 }))
+        //处理数组，返回索引组成的数组[0,1,2]
+        console.log(Object.keys([1, 2, 3]));
+        //处理字符串，返回索引组成的数组[0,1,2,3,4]
+        console.log(Object.keys('hello'));
+
+        //Object.values()
+        //返回value的值
+        console.log(Object.values({ name: "Tom", age: 11 }));
+        console.log(Object.values([1, 2, 3]))
+        console.log(Object.values('hello'))
+
+        //Object.entries()
+        console.log(Object.entries({ name: "Tom", age: 11 }))
+        console.log(Object.entries([1, 2, 3]))
+    </script>
+</body>
+
+</html>

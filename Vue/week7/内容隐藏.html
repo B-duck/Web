@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                show: true
+            }
+        },
+        //函数写在对象里
+        methods: {
+            handle() {
+                this.show = !this.show;//true变false，false变true
+            }
+        },
+        // v-on绑定事件指令,click点击事件
+        //v-on一般简写为@
+        template: `
+        <div>
+            <span v-if="show">hello world</span>
+            <button v-on:click="handle">显示/隐藏</button>
+            </div>`
+    }).mount('#root');
+</script>
+
+</html>

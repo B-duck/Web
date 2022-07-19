@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .green {
+            color: green;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                classString: 'red',
+            }
+        },
+        template: `
+        <div :class="classString">
+            Hello
+            <demo  class="green"/>
+        </div>`
+    });
+    //创建一个小组件
+    //class="green"也可以写在div标签上
+    app.component('demo', {
+        //:class="$attrs.class"父组件上class的值
+        template: `<div :class="$attrs.class">single</div>`
+    })
+    const vm = app.mount('#root');
+</script>
+
+</html>

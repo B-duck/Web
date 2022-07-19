@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        template: `
+            <div>
+                <counter msg="hello" />
+            </div>
+            `
+    });
+    //语法v-bind=$attrs，可以把根组件里的属性都传进来，附在div标签上
+    app.component('counter', {
+        mounted() {
+            console.log(this.$attrs)
+        },
+        template: `
+        <div :msg="$attrs.msg">counter</div>
+        <div v-bind=$attrs>counter</div>
+        <div>counter</div>
+        `
+    })
+    const vm = app.mount('#root');
+</script>
+
+</html>

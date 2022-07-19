@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Ajax的使用基础：XMLHttpRequest,是一个构造函数，需要实例化
+        //Ajax的使用步骤
+        //1.创建xhr对象
+        // const xhr=new XMLHttpRequest();
+        //2.准备发送请求,最后一个参数是否用异步操作
+        //xhr.open('HTTP方法',地址URL,true)
+        //3.发送请求
+        //xhr.send();
+        //4.接收数据，监听事件，处理响应
+        // xhr.onreadystatechange=()=>{
+        //     if(xhr.readyState!==4) return;
+        //     //服务器端是否正常
+        //     if(xhr.status>=200&xhr.status<300||xhr.status===304){
+        //         console.log(xhr.responseText)
+        //     }
+        //}
+
+        //使用Ajax完成前后端的通信
+        const url='https://www.imooc.com/api/http/search/suggest?words=js&username=alex';
+        const xhr=new XMLHttpRequest();
+        xhr.onreadystatechange=()=>{
+            if(xhr.readyState!==4) return;
+            if(xhr.status>=200&xhr.status<300||xhr.status===304){
+                console.log(xhr.responseText)
+            }
+        }
+        xhr.open('GET',url,true);
+        xhr.send(null);
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes shake {
+            0% {
+                transform: translate3d(-100px);
+            }
+
+            50% {
+                transform: translate3d(-50px);
+            }
+
+            100% {
+                transform: translate3d(50px);
+            }
+        }
+
+        .v-enter-from,
+        .v-leave-to {
+            opacity: 0;
+        }
+
+        .v-enter-active {
+            transition: opacity 3s ease-out;
+        }
+
+        .v-leave-active {
+            transition: opacity 2s ease-in;
+        }
+
+        .v-leave-to {
+            opacity: 0;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //单元素/单组件的出场入场动画
+    //借助Vue的封装
+    const app = Vue.createApp({
+        data() {
+            return {
+                show: false
+            }
+        },
+        methods: {
+            handle() {
+                this.show = !this.show;
+            }
+        },
+        //<transition>配合着书写样式style
+        //入场动画，动画执行过程.v-enter-active
+        template: `
+            <div>
+            <transition>
+             <div v-if="show">hello</div>
+            </transition>
+             <button @click="handle">切换</button>
+            </div>
+            `
+    });
+
+    app.component(
+    );
+    const vm = app.mount('#root');
+</script>
+
+</html>

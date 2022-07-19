@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                counter: 0
+            }
+        },
+        methods: {
+            handle() {
+                console.log('key')
+            }
+        },
+        //鼠标修饰符：.left,.right,.middle
+        //精确修饰符：exact
+        //.ctrl.exact只有按住ctrl键，点击才会触发
+        template: `
+        <div>
+            <div @click.left="handle">123</div>
+        </div>
+        <div>
+            <div @click.ctrl.exact="handle">123</div>
+        </div>
+            `
+    });
+    const vm = app.mount('#root');
+</script>
+
+</html>

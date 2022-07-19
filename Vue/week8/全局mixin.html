@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                number: 1
+            }
+        },
+        methods: {
+            handle() {
+                console.log('handle')
+            },
+        },
+        template: `
+            <div>
+                <div>{{number}}</div>
+                <child />
+                <button @click="handle">增加</button>
+            </div>
+            `
+    })
+    //全局组件默认会注入到每个组件里
+    //全局组件不建议使用，代码维护性不高
+    app.mixin({
+        data() {
+            return {
+                number: 2,
+                count: 1
+            }
+        },
+        //混入生命周期函数
+        created() {
+            console.log('mixin')
+        }
+    })
+    app.component('child', {
+        template: `
+        <div>{{count}}</div>
+        `
+    })
+    const vm = app.mount('#root');
+</script>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li class="b">B</li>
+        <li class="c">C</li>
+        <li class="e">E</li>
+    </ul>
+    <button onclick="addA()">补A</button>
+    <button onclick="addD()">补D</button>
+</body>
+
+<script>
+    //删除节点
+    //方法一
+    // let e = document.querySelector('li.e')
+    // e.remove()
+
+    //方法二
+    let ulr = document.querySelector('ul')
+    ulr.removeChild(document.querySelector('li.e'))
+
+
+
+    const input = document.querySelector('input')
+    const ul = document.querySelector('ul')
+
+    function addA() {
+        const bli = document.querySelector('.b')
+        const ali = document.createElement('li')
+        ali.innerText = 'A'
+        //.parentNode是寻找父元素，ul也可以是bli.parentNode
+        ul.insertBefore(ali, bli)//插入新节点，插到那个地方
+    }
+
+    function addD() {
+        const eli = document.querySelector('.e')
+        const dli = document.createElement('li')
+        dli.innerText = 'D'
+        ul.insertBefore(dli, eli)
+    }
+</script>
+
+</html>

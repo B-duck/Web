@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .c1{
+            width: 600px;
+            height: 400px;
+            border: 1px solid #000;
+            margin: 40px auto;
+            position: relative;
+        }
+        .c1 .btn{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            text-decoration: none;
+            top: 50%;
+            margin-top: -25px;
+            /* 变成圆形 */
+            border-radius: 50%;
+            /* 文字居中 */
+            text-align: center;
+            line-height: 50px;
+            background-color: rgba(255,255,255,.6);
+            /* 鼠标变成小手状 */
+            cursor: pointer;
+            font-family: consolas;
+            font-size: 20px;
+        }
+        .c1 .btn:hover{
+           background-color: gold;
+           color: white;
+        }
+        .c1 .left{
+            left: 10px;
+        }
+        .c1 .right{
+            right: 10px;
+        }
+        .c1 ol{
+            position: absolute;
+            width: 120px;
+            height: 20px;
+            right: 10px;
+            bottom: 10px;
+            list-style: none;
+        }
+        .c1 ol li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(255,255,255,.6);
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="c1">
+        <img src="images/niaochao.jpeg">
+        <!-- 左右轮播的小圆点有许多公共属性 -->
+        <a class="left btn">&lt;</a>
+        <a class="right btn">&gt;</a>
+        <ol>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+</body>
+</html>

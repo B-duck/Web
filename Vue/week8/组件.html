@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //根组件
+    //组件具备复用性
+    const app = Vue.createApp({
+        template: `<div>
+            <div>hello</div> 
+            <div>world</div> 
+            </div>
+
+            <div>
+            <counter />
+            <counter />
+            <counter />
+            </div>
+            `
+    });
+    //子组件
+    //拆成几个部分，页面维护成本降低
+    //属于全局组件，只要定义了，处处可以使用，性能不高，但使用起来简单，名字建议小写字母
+    app.component('hello', {
+        template: `
+            <div>hello</div> `
+    })
+    app.component('world', {
+        template: `
+            <div>world</div> `
+    })
+    app.component('counter', {
+        data() {
+            return {
+                count: 1
+            }
+        },
+        template: `
+            <div @click="count+=1">{{count}}</div> `
+    })
+    const vm = app.mount('#root');
+</script>
+
+</html>

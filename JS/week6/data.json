@@ -1,0 +1,19 @@
+{
+    "lists": [
+        {
+            "name": "笔记本",
+            "price": 5000,
+            "count": 5
+        }
+        {
+            "name": "电视机",
+            "price": 5000,
+            "count": 5
+        }
+        {
+            "name": "洗衣机",
+            "price": 5000,
+            "count": 5
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.abort():终止当前请求，配合abort事件使用，在send()后面使用
+        //2.setRequestHeader(名称，值):设置头信息,相关代码：
+        //xhr.setRequestHeader('Content=type','application/x-www-form-urlencoded')
+        const url='https://www.imooc.com/api/http/search/suggest?words=js';
+        const xhr=new XMLHttpRequest();
+        xhr.onreadystatechange=()=>{
+            //文本形式的相应内容
+            if(xhr.readyState!==4) return;
+            if(xhr.status>=200&xhr.status<300||xhr.status===304){
+                //只有在responseText=”“或text使用
+                //console.log(xhr.responseText)
+                console.log('response:',xhr.response)
+            }
+        }
+        xhr.open('GET',url,true);
+        //xhr.responseType='text'; 
+        xhr.responseType='json';  
+        xhr.send(null); 
+        xhr.timeout=2000;
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return { num: 1234 }
+        },
+        //:content="num"动态传参，数字
+        //content="num"静态传参，字符串
+        template: `
+            <div>
+            <test :content="num" />
+            </div>
+            `
+    });
+    app.component('test', {
+        // props:接收外部传过来的属性
+        //接收content参数，类型必须为number，而且必须传这个参数 :content="num"
+        //required必填
+        //default默认值
+        props: {
+            content: {
+                type: Number,
+                required: true,
+                validator: function (value) {
+                    return value < 1000;
+                }
+            },
+        },
+        template: `<div>{{ content}}</div>`
+    })
+    const vm = app.mount('#root');
+</script>
+
+</html>

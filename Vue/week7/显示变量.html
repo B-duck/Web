@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                content: 1
+            }
+        },
+        //template 模版
+        template: '<div>{{content}}</div>'//写两个花括号，代表是JS的表达式
+    }).mount('#root');
+    //网址用来引入Vue库
+</script>
+
+</html>

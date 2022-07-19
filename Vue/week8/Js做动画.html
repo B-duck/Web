@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //单元素/单组件的出场入场动画
+    //借助Vue的封装
+    const app = Vue.createApp({
+        data() {
+            return {
+                show: false
+            }
+        },
+        methods: {
+            handle() {
+                this.show = !this.show;
+            },
+            //在在入场开始前
+            handleBeforeEnter(el) {
+                el.style.color = "red"
+            },
+            handleEnterActive(el, done) {
+                const animation = setInterval(() => {
+                    const color = el.style.color;
+                    if (color === 'red') {
+                        el.style.color = 'green'
+                    } else {
+                        el.style.color = 'red'
+                    }
+                }, 1000)
+
+                setTimeout(() => {
+                    clearInterval(animation)
+                }, 3000)
+            }
+        },
+        //Js中有些钩子，和生命周期函数差不多，在某一时刻会被自动调用
+        template: `
+            <div>
+            <transition 
+            :css="false"
+            @before-enter="handleBeforeEnter"
+            @enter="handleEnterActive"
+            >
+             <div v-if="show">hello</div>
+            </transition>
+             <button @click="handle">切换</button>
+            </div>
+            `
+    })
+    app.component(
+    );
+    const vm = app.mount('#root');
+</script>
+
+</html>

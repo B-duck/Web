@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //ApI中使用provide和inject
+    const app = Vue.createApp({
+        setup() {
+            const { provide, ref, readonly } = Vue;
+            const name = ref('dell')
+            //两个参数，key和value
+            provide('name', readonly(name));
+            provide('changeName', (value) => {
+                name.value = value;
+            })
+        },
+        template: `
+                <div>
+                    <child />
+                </div>
+                `,
+    });
+    app.component('child', {
+        setup() {
+            const { inject } = Vue;
+            const name = inject('name');
+            const changeName = inject('changeName')
+            const handle = () => {
+                changeName('lee')
+            }
+            return {
+                name,
+                handle
+            }
+        },
+        template: `
+        <div @click="handle">{{name}}</div>
+        `
+    })
+    const vm = app.mount('#root');
+</script>
+
+</html>

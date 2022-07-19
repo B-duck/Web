@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header {
+            position: absolute;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //v-pos="200"距离顶部的距离是200像素
+    const app = Vue.createApp({
+        data() {
+            return {
+                distance: 100
+            }
+        },
+        template: `
+            <div>
+                <div v-pos:top="distance" class="header">
+                <input />
+                </div>
+            </div>
+            `
+    })
+    //简写这段代码
+    // app.directive('pos', {
+    //     // binding.value就是v-pos的值
+    //     mounted(el, binding) {
+    //         el.style.top = binding.value + 'px';
+    //     },
+    //     //在控制台改变数据的时候，组件重新渲染，updated重置组件
+    //     updated(el, binding) {
+    //         el.style.top = binding.value + 'px';
+    //     }
+    // })
+    // binding.value就是v-pos的值
+    app.directive('pos', (el, binding) => {
+        el.style[binding.arg] = binding.value + 'px';
+    })
+    const vm = app.mount('#root');
+</script>
+
+</html>

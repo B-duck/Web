@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .v-enter-from,
+        .v-leave-to {
+            opacity: 0;
+        }
+
+        .v-enter-active,
+        .v-leave-active {
+            transition: opacity 2s ease-in;
+        }
+
+        .v-enter-to,
+        .v-leave-from {
+            opacity: 1;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const ComponentA = {
+        template: '<div>hello</div>'
+    }
+    const ComponentB = {
+        template: '<div>bye</div>'
+    }
+    const app = Vue.createApp({
+        data() {
+            return {
+                component: 'component-a'
+            }
+        },
+        methods: {
+            handle() {
+                if (this.component === 'component-a') {
+                    this.component = 'component-b';
+                } else {
+                    this.component = 'component-a';
+                }
+            }
+        },
+        components: {
+            'component-a': ComponentA,
+            'component-b': ComponentB
+        },
+        //再次使用动态组件，复习
+        template: `
+            <div>
+            <transition mode="out-in" appear>
+             <component :is="component" />
+            </transition>
+             <button @click="handle">切换</button>
+            </div>
+            `
+    });
+
+    app.component(
+    );
+    const vm = app.mount('#root');
+</script>
+
+</html>

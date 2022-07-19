@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // {"code":200,"data":[{"word":"jsp"},{"word":"js"},
+        // {"word":"json"},{"word":"js \u5165\u95e8"},{"word":"jstl"}]}
+        //JS<->Json<->PHP/Java
+
+        //1.简单值形式
+        
+        const url='https://www.imooc.com/api/http/search/suggest?words=js&username=alex';
+        const xhr=new XMLHttpRequest();
+        xhr.onreadystatechange=()=>{
+            if(xhr.readyState!==4) return;
+            if(xhr.status>=200&xhr.status<300||xhr.status===304){
+                console.log(xhr.responseText)
+            }
+        }
+        xhr.open('GET','./plain.json',true);
+        xhr.send(null);
+
+       // 2.对象形式
+       //3.数组形式                                                                                                                                                                                                                                                                                                                                                        
+    </script>
+</body>
+</html>

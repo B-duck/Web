@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area {
+            position: absolute;
+            width: 200px;
+            height: 300px;
+            background: green;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transform: translateY(-50%);
+        }
+
+        .mask {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: #000;
+            opacity: 0.5;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //对数据做校验的插件
+
+    const app = Vue.createApp({
+        data() {
+            return {
+                name: 'dell',
+                age: 12
+            }
+        },
+        //自创语法
+        rules: {
+            age: {
+                validata: (age) => {
+                    return age > 25
+                },
+                message: '年轻'
+            }
+        },
+        template: `
+            <div>name:{{name}},age:{{age}}</div>
+            `
+    });
+    //可扩展性更好
+    const validatorPlugin = (app, options) => {
+        app.mixin({
+            //声明周期函数
+            //created() 当组件初始化结束时执行的函数
+            created() {
+                for (let key in this.$options.rules) {
+                    const item = this.$options.rules[key];
+                    //对age做监控
+                    //value是age改变后，age新的值
+                    this.$watch(key, (value) => {
+                        const result = item.validata(value);
+                        if (!result) console.log(item.message);
+                    })
+                }
+            }
+        })
+    }
+    app.use(validatorPlugin);
+
+    // app.mixin({
+    //     //声明周期函数
+    //     //created() 当组件初始化结束时执行的函数
+    //     created() {
+    //         for (let key in this.$options.rules) {
+    //             const item = this.$options.rules[key];
+    //             //对age做监控
+    //             //value是age改变后，age新的值
+    //             this.$watch(key, (value) => {
+    //                 const result = item.validata(value);
+    //                 if (!result) console.log(item.message);
+    //             })
+    //         }
+    //     }
+    // })
+    const vm = app.mount('#root');
+</script>
+
+</html>

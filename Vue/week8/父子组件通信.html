@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //父子组件通过事件进行通信
+    const app = Vue.createApp({
+        data() {
+            return {
+                count: 1
+            }
+        },
+        methods: {
+            handleadd(a) {
+                this.count += a;
+            }
+        },
+        template: `
+            <div>
+                <counter :count="count" @add="handleadd" />
+            </div>
+            `
+    });
+    //语法v-bind=$attrs，可以把根组件里的属性都传进来，附在div标签上
+    app.component('counter', {
+        props: ['count'],
+        //子组件向外触发事件
+        emits: {
+        },
+        methods: {
+            //向外触发一个addone事件
+            handle() {
+                this.$emit('add', 2)
+            }
+        },
+        template: `
+        <div @click="handle">{{count}}</div>
+        `
+    })
+    const vm = app.mount('#root');
+</script>
+
+</html>

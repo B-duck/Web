@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //标签修饰符：.lazy变慢;.number类型转换为number类型；.trim去除数内容前后的空格
+    const app = Vue.createApp({
+        data() {
+            return {
+                message: 'hello'
+            }
+        },
+        //true-value和false-value可以自定义
+        template: `
+        <div>
+            {{message}}
+            <input type="checkbox" v-model="message" true-value="hello" false-value="world" />
+        </div>
+        <div>
+            {{message}}
+            <input v-model.lazy="message" />
+        </div>
+        <div>
+            {{typeof message}}
+            <input v-model.number="message" />
+        </div>
+        `
+    });
+    const vm = app.mount('#root');
+</script>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        //beforeMount等价于onBeforeMount
+        //beforeMount=>onBeforeMount
+        //mounted=>onMounted
+        //beforeUpdate=>onBeforeUpdate
+        //onRenderTracked:每次渲染后重新收集响应式依赖
+        //onRenderTriggered：每次触发页面重新渲染时自动执行
+        setup() {
+            const { onBeforeMount, onMounted, onRenderTracked, onRenderTriggered } = Vue;
+            onBeforeMount(() => {
+                console.log('hell')
+            })
+            onMounted(() => {
+                console.log('helllo')
+            })
+            return {
+            }
+        },
+        template: `
+                <div>
+                    hello
+                </div>
+                `,
+    });
+
+    const vm = app.mount('#root');
+</script>
+
+</html>

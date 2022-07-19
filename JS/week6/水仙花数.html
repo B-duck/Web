@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //用户输入一个三位数
+        var n = Number(prompt('请输入一个三位数'));
+        //对输入放入值进行验证
+        if (!isNaN(n) && 100 <= n && n <= 999) {
+            //用户输入的合法
+            var a = Math.floor(n / 100);//ceil向下取整
+            var b = Math.floor(n / 10 % 10);
+            var c = n % 10;
+            console.log(a);
+            console.log(b);
+            console.log(c);
+
+            //字符串方法
+            var n_str = n.toString();
+            var a = Number(n_str.charAt[0]);
+            var b = Number(n_str.charAt[1]);
+            var c = Number(n_str.charAt[2]);
+
+            //水仙花数判断,a三次方+b三次方+c三次方=本身
+            if (Math.pow(a, 3) + Math.pow(b, 3) + Math.pow(c, 3) == n) {
+                alert(n + '是水仙花数');
+            }
+            else {
+                alert(n + '不是水仙花数');
+            }
+        }
+        else {
+            alert('输入的值不合法');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../小慕医生"
+		},
+		{
+			"path": "web"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "网页制作"
+	}
+}

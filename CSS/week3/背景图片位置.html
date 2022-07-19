@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            margin-bottom: 10px;
+            background-image: url(images/niaochao.jpeg);
+            background-repeat: no-repeat;
+            background-size: 50% auto;
+            background-position: top right;
+        }
+        .box2{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            margin-bottom: 10px;
+            background-image: url(images/niaochao.jpeg);
+            background-repeat: no-repeat;
+            /* cover不能使图片居中，position使图片居中 */
+            background-size: cover;
+            background-position: center center;
+            background: white url(images/niaochao.jpeg) no-repeat center center ;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

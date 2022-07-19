@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area {
+            position: absolute;
+            width: 200px;
+            height: 300px;
+            background: green;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transform: translateY(-50%);
+        }
+
+        .mask {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: #000;
+            opacity: 0.5;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //混入和插件都是对代码进行封装
+    //但插件对代码能更好的封装
+    //比如轮播的效果
+    //plugin 插件:把通用性的功能封装起来
+    const myPlugin = {
+        //插件在运行时的逻辑，专用词install
+        install(app, options) {
+            //通过provide提供全局的数据
+            app.provide('name', 'Tom');
+            app.directive('focus', {
+                mounted(el) {
+                    el.focus();
+                }
+            });
+            //因为外部挂载了两个组件，所以mixin打印两次
+            app.mixin({
+                mounted() {
+                    console.log('hello')
+                }
+            });
+            //全局扩展, 底层扩展
+            app.config.globalProperties.$sayHello = 'hello';
+        }
+    }
+
+    const app = Vue.createApp({
+        template: `
+            <my-title />
+            `
+    });
+    app.component('my-title', {
+        //声明一下才能使用myPlugin里的内容
+        mounted() {
+            console.log(this.$sayHello)
+        },
+        inject: ['name'],
+        template: `
+        <div>
+            {{name}}
+            <input v-focus />
+        </div>
+        `
+    }
+    );
+    //app.use使用定义的插件
+    app.use(myPlugin, { name: "dell" });
+    const vm = app.mount('#root');
+</script>
+
+</html>

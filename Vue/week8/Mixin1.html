@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //mixin 混入:一个对象，把他混到组件里
+    //组件data优先级高于mixin data的优先级
+    //混入生命周期函数，先执行mixin里的，再执行组件里的
+    //组件methods优先级高于mixin的优先级
+    const myMixin = {
+        data() {
+            return {
+                number: 2,
+                count: 1
+            }
+        },
+        //混入生命周期函数
+        created() {
+            console.log('mixin')
+        }
+    }
+    const app = Vue.createApp({
+        data() {
+            return {
+                number: 1
+            }
+        },
+        mixins: [myMixin],
+        methods: {
+            handle() {
+                console.log('handle')
+            },
+        },
+        //为增加列表添加动画
+        template: `
+            <div>
+                <div>{{number}}</div>
+                <div>{{count}}</div>
+                <button @click="handle">增加</button>
+            </div>
+            `
+    })
+    const vm = app.mount('#root');
+</script>
+
+</html>

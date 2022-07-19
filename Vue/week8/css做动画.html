@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes shake {
+            0% {
+                transform: translateX(-100px);
+            }
+
+            50% {
+                transform: translateX(-50px);
+            }
+
+            100% {
+                transform: translateX(50px);
+            }
+        }
+
+        .v-enter-active {
+            animation: shake 2s;
+            transition: color 3s ease-out;
+        }
+
+        .v-leave-active {
+            animation: shake 1s;
+            transition: all 3s ease-out;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //单元素/单组件的出场入场动画
+    //借助Vue的封装
+    const app = Vue.createApp({
+        data() {
+            return {
+                show: false
+            }
+        },
+        methods: {
+            handle() {
+                this.show = !this.show;
+            }
+        },
+        //type="animation",通过类型控制动画和过渡同步执行的效果
+        //:duration="1000",控制过渡和动画执行的时间是多久
+        template: `
+            <div>
+            <transition type="animation">
+             <div v-if="show">hello</div>
+            </transition>
+             <button @click="handle">切换</button>
+            </div>
+            `
+    });
+
+    app.component(
+    );
+    const vm = app.mount('#root');
+</script>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //单项数据流：子组件可以使用父组件传递过来的数据，但是绝对不能修改数据
+    const app = Vue.createApp({
+        data() {
+            return {
+                content: 1234,
+            }
+        },
+        template: `
+            <div>
+            <test :content-abc="content" />
+            </div>
+            `
+    });
+    //属性传的时候，使用content-abc，接的时候，使用contentAbc
+    //contentAbc就是content-abc
+    app.component('test', {
+        //传
+        props: ['contentAbc'],
+        //可以把传进来的数据存一份，再进行修改
+        data() {
+            return {
+                mycontent: this.contentAbc
+            }
+        },
+        //接
+        template: `<div @click="mycontent+=1">{{mycontent}}</div>`
+    })
+    const vm = app.mount('#root');
+</script>
+
+</html>

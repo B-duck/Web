@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //v-slot简写为#
+    //作用域插槽:子组件渲染的内容需要父组件决定
+    const app = Vue.createApp({
+        //slotProps接收子组件
+        //也可以用解构写
+        //     < list v - slot="{item}" >
+        // <span>
+        //     {{item}}
+        // </span>
+        //         </list >
+        template: `
+            <list v-slot="slotProps">
+                <span>
+                    {{slotProps.item}}
+                </span>
+            </list>
+            `
+    });
+    app.component('list', {
+        data() {
+            return {
+                list: [1, 2, 3]
+            }
+        },
+        template: `
+        <div>
+            <slot v-for="item in list" :item="item" />
+        </div>
+        `
+    });
+    const vm = app.mount('#root');
+</script>
+
+</html>

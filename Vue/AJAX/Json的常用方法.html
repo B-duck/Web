@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        //Json.parse():可以将JSON格式的字符串解析成JS中的对应值
+        //Json.stringify():将Js的基本数据类型转换成Json格式的字符串
+        import {set,get,remove,clear} from './storeage.js';
+        set('username','alex');
+        console.log(get('username'));
+        set('zs',{
+            name:'章三',
+            age:18
+        });
+        console.log(get('zs'));
+    </script>
+</body>
+</html>

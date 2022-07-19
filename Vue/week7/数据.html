@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                message: 'hello',
+            }
+        },
+        //方法中的this，统一指向对应实例
+        methods: {
+            handle() {
+                console.log('click', this.message)
+            },
+            formatString(string) {
+                return string.toUppCase();
+            }
+        },
+        //方法也可以在差值表达式里用
+        template: `
+        <div @click="handle">{{formatString(message)}}</div>`
+    });
+    app.mount('#root');
+</script>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                list: ["hello", "world"],
+                listObject: {
+                    firstname: 'hello',
+                    lastname: 'world'
+                }
+            }
+        },
+        methods: {
+            handle() {
+                //1.变更函数；push，pop，shift，sort
+                //pop是使得数组从最后一个元素开始删除
+                //shift是使得数组从第一个元素开始删除
+                //unshift，从数组第一个开始添加内容
+                //sort排序
+                // this.list.push('hello');
+                // this.list.pop();
+                // this.list.shift();
+                // this.list.unshift('hello');
+                //2.直接替换数组
+                //this.list = ['bye', 'world']
+                //3.直接更新数组的内容
+                this.list[1] = 'tll'
+            }
+        },
+        //循环
+        //:key=""循环时给出唯一的一个key值，可以降低性能
+        template: `
+             <div v-for="(item,index) in list" :key="item">
+               {{item}} {{index}} 
+            </div>
+            <button @click="handle">新增</button>
+            `
+    });
+    const vm = app.mount('#root');
+</script>
+
+</html>

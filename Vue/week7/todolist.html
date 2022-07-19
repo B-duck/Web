@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                inputValue: '',
+                list: []
+            }
+        },
+        methods: {
+            handle() {
+                this.list.push(this.inputValue)
+                this.inputValue = ''
+            }
+        },
+        //v-for循环,(item,index)增加项目和下标
+        //v-model是把input中的内容与input变量双向绑定
+        template: `
+        <div>
+            <input v-model="inputValue" />
+            <button v-on:click="handle">增加</button>
+            <ul>
+                <li v-for="(item,index) of list">{{item}} {{index}}</li>
+            </ul>
+        </div>
+        `
+    }).mount('#root');
+</script>
+
+</html>

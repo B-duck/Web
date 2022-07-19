@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    //setup函数中computed计算属性
+    const app = Vue.createApp({
+        setup() {
+            const { ref, computed } = Vue;
+            const count = ref(0);
+            const handle = () => {
+                count.value += 1
+            }
+            const countAdd = computed(() => {
+                return count.value + 5;
+            })
+            return {
+                count,
+                handle,
+                countAdd
+            }
+        },
+        template: `
+                <div>
+                   <span @click="handle">{{count}}</span>--{{countAdd}}
+                </div>
+                `,
+    });
+
+    const vm = app.mount('#root');
+</script>
+
+</html>
