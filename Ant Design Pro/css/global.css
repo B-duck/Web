@@ -275,8 +275,10 @@ button:-moz-focusring,
 }
 
 .g-ant-sider__wrap{
+    /* 与可视区的高度相同 */
     height: 100%;
     display: flex;
+    /* 弹性方向时垂直方向 */
     flex-direction: column;
 }
 
@@ -299,10 +301,12 @@ button:-moz-focusring,
     flex-shrink: 0;
 }
 .g-ant-sider__main{
+    /* 中间时可拉伸 */
     flex-grow: 1;
+    /* x轴 y轴 */
     overflow: hidden auto;
 }
-
+/* 改变滚动条样式 */
 .g-ant-sider__main::-webkit-scrollbar {
     width : 6px;
     height: 6px;
@@ -315,17 +319,39 @@ button:-moz-focusring,
     background   : #263849;
     border-radius: 3px;
 }
-
 .g-ant-sider__foot{
     flex-shrink: 0;
 }
 
-/*-----------------通用模块(m-)-----------------------*/
+.g-ant__main{
+    /* 右侧自适应剩余布局 */
+    flex-grow: 1;
+    display: flex;
+    /* 上中下的排列结构 */
+    flex-direction: column;
+    background: #f1f2f6;
+}
+.g-ant-main__head{
+    height: 48px;
+    background: white;
+    display: flex;
+    flex-shrink: 0;
+    /* 水平靠右排列 */
+    justify-content: flex-end;
+    align-items: center;
+}
+.g-ant-main__main{
+    
+}
+.g-ant-main__foot{
+    
+}
 
+/*-----------------通用模块(m-)-----------------------*/
 .m-logo{
     display: flex;
-    align-items: center;
     padding: 16px;
+    align-items: center;
     color: white;
 }
 .m-logo>img{
@@ -334,31 +360,28 @@ button:-moz-focusring,
 .m-logo>h1{
     font-weight: 600;
     margin-left: 12px;
+    /* 侧边栏宽度变溢出效果 */
     flex-shrink: 0;
 }
-.g-ant__sider--closed .m-logo{
-    padding: 16px 8px;
-}
-
 .m-menu{
     color: #8c959e;
     cursor: pointer;
 }
 .m-menu__title{
-    height: 44px;
     display: flex;
     align-items: center;
+    height: 44px;
     column-gap: 10px;
     padding: 0 15px;
 }
 .m-menu__title>span{
-    margin-right:auto;
+    margin-right: auto;
 }
 .m-menu__sub{
     display: none;
 }
 .m-menu__sub>li{
-    padding-left: 45px;
+    padding: 0 45px;
     height: 40px;
     line-height: 40px;
 }
@@ -366,6 +389,7 @@ button:-moz-focusring,
     color: white;
 }
 .m-menu--selected .m-menu__sub{
+    /* 选中才是block显示 */
     display: block;
 }
 .m-menu__sub--selected{
@@ -373,23 +397,32 @@ button:-moz-focusring,
     color: white;
 }
 
+.g-ant__sider--closed .m-logo{
+    padding: 16px 8px;
+}
+/* 侧边栏关闭时，侧面图标变大 */
 .g-ant__sider--closed .m-menu__title{
     transform: scale(1.5);
 }
+/* 子菜单不显示 */
 .g-ant__sider--closed .m-menu__sub{
     display: none;
+}
+.g-ant__sider--closed .m-menu__title:hover{
+    
 }
 
 
 /*-----------------通用元件(u-)-----------------------*/
-
 .u-bar{
-    font-size:18px;
+    font-size: 18px;
     color: white;
+    /* 之前是内联元素 */
     display: block;
     padding: 15px;
     cursor: pointer;
 }
+
 /*-----------------响应式系统-----------------------*/
 
 
