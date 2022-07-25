@@ -330,6 +330,7 @@ button:-moz-focusring,
     /* 上中下的排列结构 */
     flex-direction: column;
     background: #f1f2f6;
+    padding: 20px;
 }
 .g-ant-main__head{
     height: 48px;
@@ -339,12 +340,28 @@ button:-moz-focusring,
     /* 水平靠右排列 */
     justify-content: flex-end;
     align-items: center;
+    column-gap: 20px;
+    padding: 0 20px;
+}
+.g-ant-main__head>span{
+    /* 文字和图标减少一点空隙 */
+    margin-left: -15px;
 }
 .g-ant-main__main{
-    
+    flex-grow: 1;
 }
 .g-ant-main__foot{
-    
+    height: 60px;
+    margin-top: 70px;
+    margin-bottom: 10px;
+    line-height: 30px;
+    text-align: center;
+    color: #868782;
+}
+.g-ant-main__foot a{
+    /* 颜色的继承 */
+    color: inherit;
+    margin: 0 20px;
 }
 
 /*-----------------通用模块(m-)-----------------------*/
@@ -408,8 +425,25 @@ button:-moz-focusring,
 .g-ant__sider--closed .m-menu__sub{
     display: none;
 }
-.g-ant__sider--closed .m-menu__title:hover{
-    
+
+.m-card{
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    font-size: 16px;
+}
+.m-card__title{
+    flex-shrink: 0;
+    height: 57px;
+    border-bottom: 1px #f1f1f1 solid;
+    display: flex;
+    padding-left: 20px;
+}
+.m-card__body{
+    /* 适应剩余的空间 */
+    flex-grow: 1;
+    padding: 20px;
 }
 
 
