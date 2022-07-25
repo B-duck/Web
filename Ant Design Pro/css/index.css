@@ -42,18 +42,22 @@ index-main__bg4,index-main__bg5,index-main__bg6{
 .index-main__bg1{
     background-image: url(../static/index-1.jpg);
 }
-.index-main__bg2{
+.index-main__bg2 {
     background-image: url(../static/index-2.jpg);
 }
-.index-main__bg3{
+
+.index-main__bg3 {
     background-image: url(../static/index-3.jpg);
 }
-.index-main__bg4{
+
+.index-main__bg4 {
     background-image: url(../static/index-4.jpg);
 }
-.index-main__bg5{
+
+.index-main__bg5 {
     background-image: url(../static/index-5.jpg);
 }
-.index-main__bg6{
+
+.index-main__bg6 {
     background-image: url(../static/index-6.jpg);
 }

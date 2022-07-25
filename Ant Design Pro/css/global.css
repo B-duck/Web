@@ -446,6 +446,18 @@ button:-moz-focusring,
     padding: 20px;
 }
 
+.m-setting{
+    width: 300px;
+    height: 100vh;
+    background: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.m-setting__bar{
+
+}
+
 
 /*-----------------通用元件(u-)-----------------------*/
 .u-bar{
