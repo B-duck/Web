@@ -5,14 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        span{
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <script>
-        console.log(isNaN(null));
-        console.log(isNaN(10));
-        console.log(isNaN('我是'));
-        console.log(isNaN('10'));
-        console.log(isNaN(undefined));
+       let num = prompt('输入：')
+       document.write(num)
+       // 模版字符串：反引号加变量
+       let age = 11
+       document.write(`今年<span>${age - 2}</span>岁`)
     </script>
 </body>
 </html>
