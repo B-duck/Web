@@ -1,0 +1,481 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 取掉所有小圆点 */
+ul,ol{
+    list-style: none;
+}
+/* 去掉所有下划线 */
+a{
+    text-decoration: none;
+}
+/* 使用继承性，给body标签设置字体 */
+body{
+    font:normal 14px/25px '微软雅黑'
+}
+header{
+   
+}
+header .header-top{
+    width: 1201px;
+    margin: 0 auto;
+    /* 浮动要封闭在一个盒子中，否则就会对页面后续元素产生影响 */
+    /* 清除浮动，形成BFC */
+    overflow:hidden;
+}
+header .header-top .logo{
+    padding-top: 27px;
+    width: 221px;
+    height: 63px;
+    float: left;
+}
+header .header-top .logo h1{
+    /* h1被父盒子挤出27px */
+    width: 221px;
+    height: 63px;
+    background-image: url(../images/logo.png);
+    /* 隐藏文字，段首 */
+    text-indent: -999em;
+}
+header .header-top .tool{
+    width: 266px;
+    height: 77px;
+    float: right;
+    padding-top: 22px;
+}
+header .header-top .tool .r1{
+    margin-bottom: 14px;
+}
+header .header-top .tool .r1 .tel{
+    width: 32px;
+    height: 25px;
+}
+header .header-top .tool .r1 .telnumber{
+    font-size: 20px;
+    color: #00978e;
+    /* 设置数字的宽高，并居中 */
+    display: inline-block;
+    width: 158px;
+    height: 26px;
+    text-align: center;
+}
+header .header-top .tool .r1 .icon{
+    width: 24px;
+    height: 24px;
+}
+header .header-top .tool .r1 .chinese_icon{
+    margin-right: 8px;
+}
+header .header-top .tool .r2{
+    width: 264px;
+    height: 28px;
+    border: 1px solid rgba(0,0,0,.6);
+    border-radius: 4px;
+}
+header .header-top .tool .r2 input{
+    float: left;
+    width: 224px;
+    height: 28px;
+    /* 去掉边框线 */
+    border: none;
+    padding-left: 20px;
+    /* 去掉外围线 */
+    outline: none;
+}
+header .header-top .tool .r2 button{
+    float: left;
+    width: 20px;
+    height: 20px;
+    /* 背景去掉 */
+    background: none;
+    border: none;
+    /* 鼠标变成小手 */
+    cursor: pointer;
+    /* 相对定位微调位置 */
+    position: relative;
+    top: 5px;
+    right: 3px;
+}
+
+/* 导航 */
+header .main-nav{
+    /* 不用写宽度，让自动撑满 */
+    height: 60px;
+    background-color: #00978E;
+    margin-top: 20px;
+}
+header .main-nav ul{
+    width: 1200px;
+    height: 60px;
+    margin: 0 auto;
+}
+header .main-nav ul li{
+    float: left;
+    width: 150px;
+    text-align: center;
+    line-height: 60px;
+}
+header .main-nav ul li.current{
+    background-color: #015E58;
+}
+header .main-nav ul li a{
+    /* 转为块级元素 */
+    display: block;
+    width: 150px;
+    height: 60px;
+    color: white;
+    font-size: 25px;
+}
+header .main-nav ul li a:hover{
+   background-color: orange;
+}
+.banner{
+    position: relative;
+} 
+.banner .banner-img{
+    width: 100%;
+}
+.banner .center{
+    /* 用绝对定位压盖背景照片 */
+    /* 子绝父相 */
+    position: absolute;
+    width: 1200px;
+    height: 300px;
+    top: 50%;
+    margin-top: -150px;
+    left: 50%;
+    margin-left: -600px;
+}
+/* 用CSS精灵显示箭头 */
+.banner .center .left-bt{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -37px;
+    width: 56px;
+    height: 74px;
+    background: url(../images/icons.png) no-repeat -42px -31px;
+    border-radius: 6px;
+}
+.banner .center .left-bt:hover{
+    background-position: -160px -31px;
+}
+.banner .center .right-bt{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -37px;
+    width: 56px;
+    height: 74px;
+    background: url(../images/icons.png) no-repeat -42px -121px;
+    border-radius: 6px;
+}
+.banner .center .right-bt:hover{
+    background-position: -160px -121px;
+}
+.banner .center h2{
+    position: absolute;
+    width: 504px;
+    height: 79px;
+    font-size: 60px;
+    color: #015E58;
+    /* 不需要加粗 */
+    font-weight: normal;
+    /* 垂直居中 */
+    top: 50%;
+    margin-top: -50px;
+    left: 114px;
+}
+.banner ol{
+    position: absolute;
+    width: 120px;
+    height: 12px;
+    bottom: 20px;
+    /* 水平居中 */
+    left: 50%;
+    margin-left: -60px;
+}
+.banner ol li{
+    float: left;
+    width: 20px;
+    height: 12px;
+    background-color: #fff;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+.banner ol li:last-child{
+    margin-right: 0;
+}
+.banner ol li.cur{
+    width: 30px;
+    background-color: #00978e;
+}
+/* 常用链接 */
+.content{
+    padding-top: 71px;
+}
+.content h3{
+    border-left: 8px solid #00978E;
+    padding-left: 10px;
+    height: 20px;
+    line-height: 20px;
+}
+.content .useful-links{
+    width: 904px;
+    height: 151px;
+    margin: 0 auto;
+    margin-top: 71px;
+}
+.content .useful-links ul{
+    /* 清除浮动 */
+    overflow: hidden;
+}
+.content .useful-links ul li{
+    float: left;
+    width: 104px;
+    margin-right: 56px;
+}
+.content .useful-links ul li:last-child{
+    margin-right: 0;
+}
+.content .useful-links ul li span{
+    /* 转块，不设置宽度，width自动填满 */
+    display: block;
+    line-height: 40px;
+    text-align: center;
+    color: #333;
+    font-size: 20px;
+}
+/* 医院动态 */
+.content .news-and-notice{
+    width: 1200px;
+    height: 376px;
+    margin: 0 auto;
+    margin-top: 56px;
+    overflow: hidden;
+}
+.content .news-and-notice .news{
+    float: left;
+    width: 877px;
+    height: 376px;
+}
+.content .news-and-notice .notice{
+    float: left;
+    width: 323px;
+    height: 376px;
+}
+.content .news-and-notice .news h3{
+    margin-bottom: 10px;
+}
+.content .news-and-notice .news .news-content .hot-news{
+    float: left;
+    width: 422px;
+    height: 328px;
+    margin-right: 20px;
+    position: relative;
+}
+.content .news-and-notice .news .news-content ul{
+    float: left;
+    width: 400px;
+    height: 328px;
+}
+.content .news-and-notice .news .news-content ul li{
+    line-height: 41px;
+}
+.content .news-and-notice .news .news-content ul li a{
+    float: left;
+    color: #666;
+}
+.content .news-and-notice .news .news-content ul li span{
+    float: right;
+}
+.content .news-and-notice .news .news-content ul .current a{
+    color: #00978e;
+}
+.content .news-and-notice .news .news-content .hot-news .info{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: rgba(0,0,0,.3);
+    text-align: center;
+    color: white;
+    line-height: 40px;
+}
+.content .news-and-notice .notice h3{
+    margin-bottom: 10px;
+}
+.content .news-and-notice .notice ol li{
+    overflow: hidden;
+    margin-bottom: 11px;
+    /* margin-right: 9px; */
+}
+.content .news-and-notice .notice ol li .number{
+    float: left;
+    width: 53px;
+    height: 57px;
+    background-color: #00978e;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    line-height: 57px;
+    margin-right: 9px;
+}
+.content .news-and-notice .notice ol li dl dt a{
+    color: #666;
+}
+.content .news-and-notice .notice ol li dl dd a{
+    color: #999;
+}
+.content .ad-images{
+    width: 1200px;
+    margin: 20px auto;
+}
+/* 科室介绍 */
+.content .dep-info{
+    height: 400px;
+    background-color: #fafafa;
+}
+.content .dep-info .center{
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 37px;
+    position: relative;
+}
+.content .dep-info .center .more{
+    position: absolute;
+    right: 0;
+    top: 37px;
+    color: #999;
+    overflow: hidden;
+}
+.content .dep-info .center .col{
+    float: left;
+    width: 265px;
+    padding-left: 35px;
+}
+.content .dep-info .center .col h4{
+    text-align: center;
+    margin-bottom: 18px;
+    margin-bottom: 20px;
+    position: relative;
+}
+/* h4左右两根横线 */
+.content .dep-info .center .col h4::before{
+    content: '';
+    position: absolute;
+    left: 65px;
+    top: 12px;
+    width: 40px;
+    height: 2px;
+    background-color: #00978e;
+}
+.content .dep-info .center .col h4::after{
+    content: '';
+    position: absolute;
+    right: 68px;
+    top: 12px;
+    width: 40px;
+    height: 2px;
+    background-color: #00978e;
+}
+.content .dep-info .center .col li{
+    float: left;
+    width: 119px;
+    height: 34px;
+    border: 1px solid #cdcdcd;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 17px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+}
+/* 偶数的li不需要有右边宽度 */
+.content .dep-info .center .col li:nth-child(2n){
+    margin-right: 0;
+}
+.content .dep-info .center .col li a{
+    color: #333;
+}
+.content .dep-info .center .col .spec a{
+    color:#00978E;
+    font-weight: bold;
+}
+/* 专家介绍 */
+.content .exp-info{
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 24px;
+    position: relative;
+}
+.content .exp-info .more{
+    position: absolute;
+    right: 0;
+    top: 37px;
+    color: #999;
+}
+.content .exp-info ul{
+    overflow: hidden;
+    padding-top: 30px ;
+}
+.content .exp-info ul li{
+    float: left;
+    width: 400px;
+    height: 240px;
+}
+.content .exp-info ul li .picturebox{
+    float: left;
+    width: 152px;
+}
+.content .exp-info ul li .picturebox img{
+    width: 152px;
+}
+.content .exp-info ul li .words{
+    float: left;
+    width: 230px;
+    padding-left: 10px;
+    color: #333;
+    line-height: 27px;
+}
+/* 页脚*/
+footer{
+    height: 395px;
+    background-color: #fafafa;
+}
+footer .center{
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 26px;
+}
+footer .center h3{
+    font-size: 20px;
+    color: #333;
+}
+footer .center .friend ul{
+    overflow: hidden;
+    padding-top: 20px;
+}
+footer .center .friend ul li{
+    float: left;
+    padding: 0 40px;
+}
+footer .center .friend ul li a{
+    color: #333;
+    font-size: 20px;
+}
+footer .center address{
+    font-style: normal;
+    padding-top: 30px;
+}
+footer .center address ul{
+    width: 730px;
+    padding-top: 20px;
+}
+footer .center address ul li{
+    float: left;
+    width: 237px;
+    margin-top: 10px;
+    font-size: 15px;
+}
