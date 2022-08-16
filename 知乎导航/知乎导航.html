@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Swiper轮播图/reset.css">
+    <link rel="stylesheet" href="./iconfont.css">
+    <style>
+        body {
+            background: #f6f6f6;
+        }
+
+        .container {
+            background: #fff;
+        }
+
+        .wrapper {
+            /* 居中 */
+            margin: 0 auto;
+            height: 52px;
+            min-width: 900px;
+            max-width: 1156px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            margin-right: 40px;
+        }
+
+        .nav {
+            display: flex;
+        }
+
+        .nav li {
+            margin-right: 30px;
+        }
+
+        .search {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .input {
+            max-width: 480px;
+            height: 34px;
+            display: flex;
+            /* 分居两侧 */
+            align-items: center;
+            justify-content: space-between;
+            flex-grow: 1;
+            background: #f6f6f6;
+            border-radius: 100px;
+        }
+
+        .input input {
+            border: none;
+            background: none;
+            margin: 0 20px;
+        }
+
+        .icon-fangdajing {
+            margin: 0 20px;
+        }
+
+        .btn {
+            display: flex;
+        }
+
+        .login {
+            width: 60px;
+            height: 32px;
+            border: 1px #0066ff solid;
+            border-radius: 3px;
+            color: #0066ff;
+            background: none;
+            /* 手型 */
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        .zhihu {
+            width: 90px;
+            height: 32px;
+            background: #0066ff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            margin-left: 20px;
+            /* 手型 */
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 最外层容器 -->
+    <div class="container">
+        <div class="wrapper">
+            <div class="logo">
+                <img src="./logo.png">
+            </div>
+            <ul class="nav">
+                <li>首页</li>
+                <li>会员</li>
+                <li>发现</li>
+                <li>等你来答</li>
+            </ul>
+
+            <div class="search">
+                <div class="input">
+                    <input type="text" placeholder="520文案">
+                    <i class="iconfont icon-fangdajing"></i>
+                </div>
+            </div>
+            <div class="btn">
+                <button class="login">登陆</button>
+                <button class="zhihu">加入知乎</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
